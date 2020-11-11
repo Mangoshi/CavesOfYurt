@@ -29,7 +29,7 @@ class GameScene extends Phaser.Scene {
         this.bg = this.map.addTilesetImage('mangoBG', 'bg')
 
         // Create layers
-        this.backgroundLayer = this.map.createStaticLayer('BACKGROUND', this.bg);
+        // this.backgroundLayer = this.map.createStaticLayer('BACKGROUND', this.bg);
         this.foregroundLayer = this.map.createStaticLayer('FOREGROUND', this.tileset);
         this.itemsLayer = this.map.createStaticLayer('ITEMS', this.items);
         this.solidLayer = this.map.createStaticLayer('SOLID', this.tileset);
@@ -170,6 +170,7 @@ class GameScene extends Phaser.Scene {
     // make the camera follow the player
     this.camera.startFollow(this.player);
     this.camera.setZoom(2.5);
+    this.camera.roundPx = true;
     }
 
     deathCheck(){
