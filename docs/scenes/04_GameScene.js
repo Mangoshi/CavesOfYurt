@@ -5,7 +5,9 @@ class GameScene extends Phaser.Scene {
 
     init() {
         this.jumpHeight = 125;
+        this.slimeJump = 75;
         this.walkSpeed = 50;
+        this.slimeSpeed = 30;
     }
 
     create() {
@@ -105,8 +107,97 @@ class GameScene extends Phaser.Scene {
     }
 
     createEnemies() {
+        this.enemy = this.physics.add.sprite(128,120,"slime");
+        this.enemy.body.setGravityY(300);
+        this.enemy.setCollideWorldBounds(true);
+        this.physics.add.collider(this.solidLayer, this.enemy);
+        this.physics.add.collider(this.enemy, this.player);
 
+        this.distanceAway = function (a,b) {return Math.abs(a-b);}
+
+        // this.enemy.checkPlayerLoc = function(pX, pY) {
+        //     console.log("Player Location: ");
+        //     console.log(pX,pY);
+
+        //     console.log("Check Enemy Location: ");
+        //     console.log(this.x, this.y);
+        // }
+
+        //11: add a collider between player and enemies
+        this.physics.add.overlap(
+            this.player,
+            this.enemy,
+            this.collisionCheck,
+            null,
+            this
+        );
+
+        this.anims.create({
+            key: "leftS",
+            frames: this.anims.generateFrameNumbers("slime", {
+                frames: [ 17, 24, 25, 24 ]
+            }),
+            frameRate: 5,
+            repeat: -1,
+        });
+    
+        this.anims.create({
+            key: "rightS",
+            frames: this.anims.generateFrameNumbers("slime", {
+                frames: [ 17, 24, 25, 24 ]
+            }),
+            frameRate: 5,
+            repeat: -1,
+            });
+
+        this.anims.create({
+            key: "idleS",
+            frames: this.anims.generateFrameNumbers("slime", {
+                frames: [ 26, 50, 26, 50, 26, 50, 51, 51 ]
+            }),
+            frameRate: 2,
+            repeat: -1,
+            });
+
+        this.physics.add.overlap(
+            this.player,
+            this.enemies,
+            this.collisionCheck,
+            null,
+            this
+        );
     }
+
+
+enemyTracking() {
+    if(this.distanceAway(this.player.x,this.enemy.x) < 50){
+        console.log("within range");
+
+        // If the player is to left of enemy
+        if (this.player.x < this.enemy.x) {
+            console.log("seeking left");
+            this.enemy.setVelocityX(-this.slimeSpeed);
+            this.enemy.anims.play("leftS", true);
+            this.enemy.setScale(1, 1);
+            this.enemy.setOffset(0, 0);
+
+        // If the player is to right of slime
+        } else if (this.player.x > this.enemy.x) {
+            console.log("seeking right");
+            this.enemy.setVelocityX(+this.slimeSpeed);
+            this.enemy.anims.play("rightS", true);
+            this.enemy.setScale(-1, 1);
+            this.enemy.setOffset(8, 0);
+        }
+    } else {
+        this.enemy.setVelocityX(0);
+        this.enemy.anims.play("idleS", true);
+    }
+}
+
+    // createEnemyMovement() {
+    //     slime.setX -=50;
+    // }
 
     createAudio() {
 
@@ -182,6 +273,15 @@ class GameScene extends Phaser.Scene {
     update() {
         this.createClassicInputs();
         this.deathCheck();
+        this.enemyTracking();
+        // this.enemy.checkPlayerLoc(this.player.x, this.player.y);
+
+
+        // collisionCheck(player, enemy) 
+        // {
+        //     console.log("overlap");
+        //     this.gameOver();
+        // }
     }
 
     render() {

@@ -32,7 +32,7 @@ class BootScene extends Phaser.Scene {
         this.load.spritesheet("slime", "assets/sprites/pico8slime.png", {
             frameWidth: 8,
             frameHeight: 8,
-            spacing: 1,
+            spacing: 0,
         });
     }
 
