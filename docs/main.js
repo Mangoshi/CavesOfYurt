@@ -27,5 +27,5 @@ var config = {
     },
 };
 
-var game = new Phaser.Game(config);
-game.debug = new Debug(game);
+const game = new Phaser.Game(config);
+

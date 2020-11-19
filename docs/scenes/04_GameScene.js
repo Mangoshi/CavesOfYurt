@@ -1,13 +1,14 @@
 class GameScene extends Phaser.Scene {
+    enemyTouched;
     constructor() {
         super('Game');
     }
 
     init() {
-        this.jumpHeight = 125;
-        this.slimeJump = 75;
-        this.walkSpeed = 50;
-        this.slimeSpeed = 30;
+        this.jumpHeight = 150;
+        this.slimeJump = 150;
+        this.walkSpeed = 75;
+        this.slimeSpeed = 50;
     }
 
     create() {
@@ -23,17 +24,16 @@ class GameScene extends Phaser.Scene {
 
     createTilemap() {
         console.log("creating tilemap")
-        this.map = this.make.tilemap({ key: 'testingHall' });
+        this.map = this.make.tilemap({ key: 'testing16' });
 
         // Add tileset images
-        this.tileset = this.map.addTilesetImage('pico8 tiles', 'tiles');
-        this.items = this.map.addTilesetImage('pico8 items', 'items');
-        this.bg = this.map.addTilesetImage('mangoBG', 'bg')
+        this.tileset = this.map.addTilesetImage('tile16', 'tiles');
+        this.items = this.map.addTilesetImage('item16', 'items');
+        this.bg = this.map.addTilesetImage('bg16', 'bg')
 
         // Create layers
-        // this.backgroundLayer = this.map.createStaticLayer('BACKGROUND', this.bg);
-        this.foregroundLayer = this.map.createStaticLayer('FOREGROUND', this.tileset);
         this.itemsLayer = this.map.createStaticLayer('ITEMS', this.items);
+        this.backgroundLayer = this.map.createStaticLayer('BG', this.bg);
         this.solidLayer = this.map.createStaticLayer('SOLID', this.tileset);
 
         // this.allLayers = [itemsLayer, foregroundLayer, backgroundLayer, solidLayer]
@@ -52,8 +52,7 @@ class GameScene extends Phaser.Scene {
     }
 
     createPlayer() {
-        this.player = this.physics.add.sprite(32, 88, "player");
-        this.player.setScale(0.4);
+        this.player = this.physics.add.sprite(72, 88, "player");
         this.playerAlive = true;
         this.player.score = 0;
         this.player.body.setGravityY(300);
@@ -64,38 +63,34 @@ class GameScene extends Phaser.Scene {
     this.anims.create({
         key: "left",
         frames: this.anims.generateFrameNumbers("player", {
-            start: 0,
-            end: 8,
+            frames: [134, 133, 132]
         }),
-        frameRate: 15,
+        frameRate: 5,
         repeat: -1,
     });
 
     this.anims.create({
         key: "right",
         frames: this.anims.generateFrameNumbers("player", {
-            start: 0,
-            end: 8,
+            frames: [120, 121, 122]
         }),
-        frameRate: 15,
+        frameRate: 5,
         repeat: -1,
         });
 
     this.anims.create({
         key: "jump",
         frames: this.anims.generateFrameNumbers("player", {
-            start: 3,
-            end: 3,
+            frames: [108, 109, 110]
         }),
-        frameRate: 15,
+        frameRate: 5,
         repeat: -1,
         });
 
             this.anims.create({
         key: "idle",
         frames: this.anims.generateFrameNumbers("player", {
-            start: 3,
-            end: 4,
+            frames: [97, 97, 98, 96]
         }),
         frameRate: 2,
         repeat: -1,
@@ -107,11 +102,11 @@ class GameScene extends Phaser.Scene {
     }
 
     createEnemies() {
-        this.enemy = this.physics.add.sprite(128,120,"slime");
+        this.enemy = this.physics.add.sprite(248,120,"slime");
         this.enemy.body.setGravityY(300);
         this.enemy.setCollideWorldBounds(true);
         this.physics.add.collider(this.solidLayer, this.enemy);
-        this.physics.add.collider(this.enemy, this.player);
+        this.physics.add.collider(this.player, this.enemy);
 
         this.distanceAway = function (a,b) {return Math.abs(a-b);}
 
@@ -159,23 +154,23 @@ class GameScene extends Phaser.Scene {
             repeat: -1,
             });
 
-        this.physics.add.overlap(
-            this.player,
-            this.enemies,
-            this.collisionCheck,
-            null,
-            this
-        );
+        // this.physics.add.overlap(
+        //     this.player,
+        //     this.enemies,
+        //     this.collisionCheck,
+        //     null,
+        //     this
+        // );
     }
 
 
 enemyTracking() {
     if(this.distanceAway(this.player.x,this.enemy.x) < 50){
-        console.log("within range");
+        // console.log("within range");
 
         // If the player is to left of enemy
         if (this.player.x < this.enemy.x) {
-            console.log("seeking left");
+            // console.log("seeking left");
             this.enemy.setVelocityX(-this.slimeSpeed);
             this.enemy.anims.play("leftS", true);
             this.enemy.setScale(1, 1);
@@ -183,7 +178,7 @@ enemyTracking() {
 
         // If the player is to right of slime
         } else if (this.player.x > this.enemy.x) {
-            console.log("seeking right");
+            // console.log("seeking right");
             this.enemy.setVelocityX(+this.slimeSpeed);
             this.enemy.anims.play("rightS", true);
             this.enemy.setScale(-1, 1);
@@ -211,15 +206,9 @@ enemyTracking() {
         {
             this.player.body.setVelocityX(-this.walkSpeed); // move left
             this.player.anims.play("left", true); // play animation with key 'left'
-            this.player.setScale(-0.4,0.4); // flip X-scale
-            this.player.setOffset(17,0) // offset hitbox by width of sprite
-            
-            if(this.player.body.onFloor()==false){ // if player is in mid-air
-                this.player.anims.play("jump", true); // play jump animation
-            }
+
             if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){ // if player is moving & presses jump while not on the ground
             this.player.body.setVelocityY(-this.jumpHeight); // jump up
-            this.player.anims.play("jump", true); // play jump animation
             }
         }
 
@@ -228,15 +217,9 @@ enemyTracking() {
         {
             this.player.body.setVelocityX(this.walkSpeed);
             this.player.anims.play("right", true);
-            this.player.setScale(0.4,0.4);
-            this.player.setOffset(0,0)
 
-            if(this.player.body.onFloor()==false){
-                this.player.anims.play("jump", true);
-            }
             if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){
                 this.player.body.setVelocityY(-this.jumpHeight);
-                this.player.anims.play("jump", true);
                 }
         }
 
@@ -260,23 +243,41 @@ enemyTracking() {
     this.camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     // make the camera follow the player
     this.camera.startFollow(this.player);
-    this.camera.setZoom(2.5);
+    this.camera.setZoom(1);
+    this.camera.setFollowOffset(0,36);
     this.camera.roundPx = true;
     }
 
     deathCheck(){
-        if (this.isPlayerAlive==false) {
-            this.gameOver();
+        if (this.enemy.body.touching.right || this.enemy.body.touching.left)
+        {
+            // player is dead
+            this.player.alive = false;
+            this.player.alpha = .5;
         }
+        else if (this.enemy.body.touching.up)
+        {
+            // player is jumping on enemy, kill it
+            this.enemy.alpha = 0;
+            this.enemy.body.enable = false;
+        }
+            if (this.player.alive===false) {
+                this.gameOver();
+            }
     }
+
+    magicLadder() {
+        this.ladder = this.add.image(328, 120, "ladder");
+
+    }
+
 
     update() {
         this.createClassicInputs();
         this.deathCheck();
         this.enemyTracking();
+        // this.renderDebug();
         // this.enemy.checkPlayerLoc(this.player.x, this.player.y);
-
-
         // collisionCheck(player, enemy) 
         // {
         //     console.log("overlap");
@@ -284,13 +285,15 @@ enemyTracking() {
         // }
     }
 
-    render() {
-        game.debug.cameraInfo(this.camera, 32, 32);
-        game.debug.spriteCoords(player, 32, 500);
+    renderDebug() {
+        // game.debug.cameraInfo(this.camera, 32, 32);
+        // game.debug.spriteCoords(player, 32, 500);
+        // this.map.renderDebug();
     }
     
 
     gameOver() {
-        this.scene.start('Game Over');
+        // this.scene.start('Game Over');
+        this.scene.start('Game');
     }
 }
