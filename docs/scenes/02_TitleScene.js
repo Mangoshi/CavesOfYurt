@@ -23,6 +23,19 @@ class TitleScene extends Phaser.Scene {
         this.startGameButton = new UiButton(this, this.scaleW / 2, this.scaleH / 2.2, 'button1', 'button2', '', this.startScene.bind(this, 'Game'));
     }
 
+    update() {
+        // listen for events
+        this.startGameButton.on('pointerdown', () => {
+            game.sound.play("click");
+            console.log("clicked");
+        });
+
+        this.startGameButton.on('pointerover', () => {
+            game.sound.play("hover");
+            console.log("hover");
+        });
+    }
+
     startScene(targetScene) {
         this.scene.start(targetScene);
     }

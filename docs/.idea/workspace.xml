@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,16 +23,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bitmapfonts/font.fnt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bitmapfonts/font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/maps/testing16.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/testing16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/maps/tiled/testing16.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/tiled/testing16.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/mangoBG-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/pico8items-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/pico8tiles-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/tiled/bg16.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/tiled/item16.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tiles/tiled/tile16.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/01_BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/01_BootScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/02_TitleScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/02_TitleScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -41,6 +62,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -50,8 +72,22 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="04_GameScene.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="04_GameScene.js" working-dir="$PROJECT_DIR$/scenes">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" start="true" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.04_GameScene.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,7 +104,17 @@
       <workItem from="1604316847788" duration="23000" />
       <workItem from="1605733906465" duration="28000" />
       <workItem from="1605733948665" duration="4623000" />
-      <workItem from="1605795822030" duration="7018000" />
+      <workItem from="1605795822030" duration="7505000" />
+      <workItem from="1605876338838" duration="594000" />
+      <workItem from="1605972960668" duration="876000" />
+      <workItem from="1606059043329" duration="575000" />
+      <workItem from="1606059633705" duration="4242000" />
+      <workItem from="1606136445681" duration="243000" />
+      <workItem from="1606151706976" duration="7072000" />
+      <workItem from="1606253025391" duration="4719000" />
+      <workItem from="1606264809254" duration="615000" />
+      <workItem from="1606309900533" duration="27155000" />
+      <workItem from="1606343229485" duration="538000" />
     </task>
     <servers />
   </component>
@@ -88,9 +134,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="331" y="332" key="SettingsEditor" timestamp="1605738186255">
+    <state x="102" y="354" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606136559318">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="331" y="332" key="SettingsEditor/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605738186255" />
+    <state x="102" y="354" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606136559318" />
+    <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606071499650">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606071499650" />
+    <state x="331" y="332" key="SettingsEditor" timestamp="1606343215561">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="331" y="332" key="SettingsEditor/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606343215561" />
+    <state x="354" y="299" width="585" height="801" key="find.popup" timestamp="1606310417897">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="354" y="299" width="585" height="801" key="find.popup/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606310417897" />
+    <state x="364" y="519" key="jetbrains.nodejs.interpreters-dialog" timestamp="1606136590287">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="364" y="519" key="jetbrains.nodejs.interpreters-dialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606136590287" />
+    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1606342100322">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606342100322" />
   </component>
 </project>
