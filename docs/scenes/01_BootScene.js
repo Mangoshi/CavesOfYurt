@@ -51,7 +51,7 @@ class BootScene extends Phaser.Scene {
         console.log("loading tilemaps")
         // Load the Tiled JSON
         // this.load.tilemapTiledJSON('testing16', 'assets/maps/testing16.json');
-        this.load.tilemapTiledJSON("Level1", "assets/maps/level1.json");
+        this.load.tilemapTiledJSON("Level1", "assets/maps/Level1.json");
 
         // Load the tiles
         this.load.image('tiles', "assets/tiles/tiles.png");
