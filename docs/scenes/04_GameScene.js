@@ -105,7 +105,8 @@ class GameScene extends Phaser.Scene {
 
     createEnemies() {
         // Making an array of slimes
-        this.slimes = [];
+        this.slimes = []
+        // 0 - 200
         this.slimes[0] = new Slime(this, 248, 152);
         this.slimes[1] = new Slime(this, 200, 152);
         this.slimes[2] = new Slime(this, 696, 56);
@@ -117,7 +118,58 @@ class GameScene extends Phaser.Scene {
         this.slimes[8] = new Slime(this, 1725, 72);
         this.slimes[9] = new Slime(this, 2320, 152);
         this.slimes[10] = new Slime(this, 2312, 72);
+        // 200 - 400
         this.slimes[11] = new Slime(this, 1800, 200);
+        this.slimes[12] = new Slime(this, 160, 232);
+        this.slimes[13] = new Slime(this, 310, 232);
+        this.slimes[14] = new Slime(this, 420, 232);
+        this.slimes[15] = new Slime(this, 594, 184);
+        this.slimes[16] = new Slime(this, 640, 152);
+        this.slimes[17] = new Slime(this, 750, 104);
+        this.slimes[18] = new Slime(this, 1200, 152);
+        this.slimes[19] = new Slime(this, 1550, 232);
+        this.slimes[20] = new Slime(this, 2172, 216);
+        this.slimes[21] = new Slime(this, 1310, 200);
+        this.slimes[22] = new Slime(this, 1150, 200);
+        this.slimes[23] = new Slime(this, 915, 216);
+        this.slimes[24] = new Slime(this, 840, 216);
+        this.slimes[25] = new Slime(this, 740, 216);
+        this.slimes[26] = new Slime(this, 602, 312);
+        this.slimes[27] = new Slime(this, 752, 280);
+        this.slimes[28] = new Slime(this, 380, 280);
+        // 300 - 600
+        this.slimes[29] = new Slime(this, 284, 440);
+        this.slimes[30] = new Slime(this, 406, 440);
+        this.slimes[31] = new Slime(this, 559, 456);
+        this.slimes[32] = new Slime(this, 800, 440);
+        this.slimes[33] = new Slime(this, 1194, 440);
+        this.slimes[34] = new Slime(this, 1520, 520);
+        this.slimes[35] = new Slime(this, 1654, 440);
+        this.slimes[36] = new Slime(this, 2100, 520);
+        this.slimes[37] = new Slime(this, 2310, 520);
+        this.slimes[38] = new Slime(this, 2318, 312);
+        this.slimes[39] = new Slime(this, 2060, 312);
+        this.slimes[40] = new Slime(this, 1888, 280);
+        this.slimes[41] = new Slime(this, 1600, 296);
+        this.slimes[42] = new Slime(this, 1440, 280);
+        this.slimes[43] = new Slime(this, 960, 280);
+        this.slimes[44] = new Slime(this, 242, 392);
+        this.slimes[45] = new Slime(this, 462, 392);
+        this.slimes[46] = new Slime(this, 636, 392);
+        this.slimes[47] = new Slime(this, 865, 392);
+        this.slimes[48] = new Slime(this, 986, 360);
+        this.slimes[49] = new Slime(this, 1150, 392);
+        this.slimes[50] = new Slime(this, 1340, 360);
+        this.slimes[51] = new Slime(this, 1582, 360);
+        this.slimes[52] = new Slime(this, 1906, 392);
+        this.slimes[53] = new Slime(this, 2061, 360);
+        this.slimes[54] = new Slime(this, 1475, 472);
+        this.slimes[55] = new Slime(this, 1660, 440);
+        this.slimes[56] = new Slime(this, 2076, 472);
+        this.slimes[57] = new Slime(this, 2255, 440);
+
+
+
     }
 
     createAudio() {

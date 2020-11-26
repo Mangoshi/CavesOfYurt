@@ -4,9 +4,9 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
 
         scene.add.existing(this);
         scene.physics.add.existing(this);
-        scene.physics.add.overlap(scene.player, this);
         scene.physics.add.collider(scene.solidLayer, this);
         scene.physics.add.collider(scene.player, this);
+        // scene.physics.add.collider(this, this);
 
         // enemy properties
 
@@ -51,7 +51,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
 }
 
 distanceAway = function (a, b) {return Math.abs(a - b);}
-slimeSpeed = 50;
+slimeSpeed = 0;
 
 function slimeTracking(slime, player){
     if (distanceAway(player.x,slime.x) < 1){
@@ -99,13 +99,16 @@ function slimeKill(slime, player, scene) {
     // would kill the player even if only landing on the top of the slime.
     // Without checking if the body of the slime is enabled, the player would die upon reaching the bottom,
     // unless they landed right in the middle of the slime thus not intersecting with the sides at all.
-    if (distanceAway(player.y, slime.y) < 1 && slime.body.enable===true) {
-        if (slime.body.touching.right || slime.body.touching.left) {
+    // if (distanceAway(player.y, slime.y) < 1 && slime.body.enable===true) {
+
+    // Discovered the glitch was down to using an overlap from our sample project PLUS a collider,
+    // so now I've taken that out, the collider seems to be functioning correctly.
+        if (slime.body.touching.right || slime.body.touching.left || slime.body.touching.bottom) {
             // player is dead
-            player.alive = false;
+            // player.alive = false;
             player.alpha = .5;
         }
-    }
+    // }
     if (player.alive === false) {
         scene.gameOver();
     }
