@@ -51,7 +51,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
 }
 
 distanceAway = function (a, b) {return Math.abs(a - b);}
-slimeSpeed = 0;
+slimeSpeed = 60;
 
 function slimeTracking(slime, player){
     if (distanceAway(player.x,slime.x) < 1){
@@ -105,7 +105,7 @@ function slimeKill(slime, player, scene) {
     // so now I've taken that out, the collider seems to be functioning correctly.
         if (slime.body.touching.right || slime.body.touching.left || slime.body.touching.bottom) {
             // player is dead
-            // player.alive = false;
+            player.alive = false;
             player.alpha = .5;
         }
     // }
