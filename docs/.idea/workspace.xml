@@ -24,10 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/Level1.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/Level1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/maps/tiled/Level1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/maps/tiled/Level1.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Slime.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_GameScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +51,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Documents/[ College Work ]/[20-21] - IADT/Computer Modelling/JS Labs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,7 +100,8 @@
       <workItem from="1606253025391" duration="4719000" />
       <workItem from="1606264809254" duration="615000" />
       <workItem from="1606309900533" duration="27155000" />
-      <workItem from="1606343229485" duration="7166000" />
+      <workItem from="1606343229485" duration="7490000" />
+      <workItem from="1606383285038" duration="2387000" />
     </task>
     <servers />
   </component>
@@ -127,10 +125,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="102" y="354" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606136559318" />
-    <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606355766726">
+    <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606387644452">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606355766726" />
+    <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606387644452" />
     <state x="331" y="332" key="SettingsEditor" timestamp="1606343215561">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
