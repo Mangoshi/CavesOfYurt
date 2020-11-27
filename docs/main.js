@@ -12,9 +12,10 @@ var config = {
         BootScene,
         TitleScene,
         GameScene,
-        OptionScene
-        // UiScene,
-        // GameOverScene
+        OptionScene,
+        HelpScene,
+        EndScene,
+        DeathScene
     ],
     physics: {
         default: 'arcade',

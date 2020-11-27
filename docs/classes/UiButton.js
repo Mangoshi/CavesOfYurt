@@ -13,45 +13,60 @@ class UiButton extends Phaser.GameObjects.Container {
         this.createButton();
         // add this container to our Phaser Scene
         this.scene.add.existing(this);
-        // this.clickSound = scene.clickSound;
-        // this.hoverSound = scene.hoverSound;
+        this.click = scene.sound.add('click');
+        this.hover = scene.sound.add('hover');
+
     }
 
     createButton() {
-        // create play game button
-        this.button = this.scene.add.image(0, 0, 'button1');
-        // make button interactive
-        this.button.setInteractive();
-        // scale the button
-        this.button.setScale(1);
+        // create buttons
+        this.buttons = [
+        this.startButton = this.scene.add.image(0, 0, 'startButton'),
+        this.helpButton = this.scene.add.image(0, 0, 'helpButton'),
+        this.settingsButton = this.scene.add.image(0, 0, 'settingsButton'),
+        this.retryButton = this.scene.add.image(0, 0, 'retryButton'),
+        this.backButton = this.scene.add.image(0, 0, 'backButton')
+        ];
 
-        // create the button text
-        this.buttonText = this.scene.add.text(0, 0, this.text, {
-            fontSize: '48px',
-            fill: '#fff',
-            fontWeight: 'bold'
-        });
+        for(let i=0; i<this.buttons.length; i++) {
+            // make buttons interactive
+            this.buttons[i].setInteractive();
 
-        // add the two game objects to our container
-        this.add(this.button);
-        this.add(this.buttonText);
+            // scale the buttons
+            this.buttons[i].setScale(1);
 
-        // listen for events
-        this.button.on('pointerdown', () => {
-            this.targetCallback();
-            // this.clickSound.play('click');
-        });
+            // pre-set textures to show the right textures from start
+            this.buttons[i].setTexture(this.key);
 
-        this.button.on('pointerover', () => {
-            this.button.setTexture(this.hoverKey);
-            // this.hoverSound.play('hover');
-        });
+            // add buttons to container
+            this.add(this.buttons[i]);
 
-        this.button.on('pointerout', () => {
-            this.button.setTexture(this.key);
-        });
+            // listen for events
+            this.buttons[i].on('pointerdown', () => {
+                this.targetCallback();
+                this.click.play();
+            });
+            this.buttons[i].on('pointerover', () => {
+                this.buttons[i].setTexture(this.hoverKey);
+                this.hover.play();
+            });
+            this.buttons[i].on('pointerout', () => {
+                this.buttons[i].setTexture(this.key);
+            });
+        }
+        this.soundButton = this.scene.add.image(-20, -20, 'soundButtonOn');
 
-        // center the button text inside the Ui button
-        Phaser.Display.Align.In.Center(this.buttonText, this.button);
+        // this.soundButton.on('pointerover', () => {
+        //     this.soundButton.setTexture(null);
+        // });
+        // this.soundButton.on('pointerout', () => {
+        //     this.soundButton.setTexture(null);
+        // });
+        // this.soundButton.on('pointerdown', () => {
+        //         this.soundButton.setTexture(null);
+        //         this.isMuted = true;
+        // });
+
+
     }
 }

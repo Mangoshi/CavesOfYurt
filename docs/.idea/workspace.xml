@@ -23,12 +23,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scenes/03_HelpScene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scenes/06_EndScene.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scenes/07_DeathScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Slime.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 1.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/StartButton.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button.aseprite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/menuBG.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/menuBG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/menuBGs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sfx/click.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sfx/click.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sfx/hover.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sfx/hover.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprites/gold.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/gold.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/UiButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UiButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/01_BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/01_BootScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/02_TitleScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/02_TitleScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_GameScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/03_OptionScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_OptionScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/05_GameScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/04_UiScene.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +97,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Documents/[ College Work ]/[20-21] - IADT/Computer Modelling/JS Labs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scenes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,8 +108,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workspace\College\SoftwareDesign\sw-project-ca1-Mangoshi\docs\scenes" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="04_GameScene.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="04_GameScene.js" working-dir="$PROJECT_DIR$/scenes">
+    <configuration name="05_GameScene.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scenes/05_GameScene.js" working-dir="$PROJECT_DIR$/scenes">
       <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
         <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" start="true" />
       </EXTENSION>
@@ -75,7 +122,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.04_GameScene.js" />
+        <item itemvalue="Node.js.05_GameScene.js" />
       </list>
     </recent_temporary>
   </component>
@@ -108,7 +155,7 @@
       <workItem from="1606383285038" duration="2387000" />
       <workItem from="1606400143996" duration="2602000" />
       <workItem from="1606403268848" duration="11046000" />
-      <workItem from="1606481246545" duration="5967000" />
+      <workItem from="1606481246545" duration="19660000" />
     </task>
     <servers />
   </component>
@@ -132,6 +179,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="102" y="354" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606136559318" />
+    <state x="367" y="450" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606499048953">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="367" y="450" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606499048953" />
+    <state x="93" y="100" width="1088" height="1208" key="DiffContextDialog" timestamp="1606496354731">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="93" y="100" width="1088" height="1208" key="DiffContextDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606496354731" />
     <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606387644452">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -148,9 +203,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="364" y="519" key="jetbrains.nodejs.interpreters-dialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606136590287" />
-    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1606342100322">
+    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup" timestamp="1606502434404">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606342100322" />
+    <state x="310" y="320" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606502434404" />
   </component>
 </project>

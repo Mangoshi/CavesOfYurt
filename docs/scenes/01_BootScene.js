@@ -18,9 +18,21 @@ class BootScene extends Phaser.Scene {
     }
 
     loadImages() {
-        this.load.image('menuBackground', 'assets/img/menuBGs.png');
-        this.load.image('button1', 'assets/buttons/LateNighCoffe/Green/startBtn1.png');
-        this.load.image('button2', 'assets/buttons/LateNighCoffe/Green/startBtn2.png');
+        this.load.image('menuBackground', 'assets/img/menuBG.png');
+        this.load.image('deathBackground', 'assets/img/deathBG.png');
+        this.load.image('winBackground', 'assets/img/winBG.png');
+        this.load.image('startButton', 'assets/buttons/LateNighCoffe/Green/startBtn1.png');
+        this.load.image('startButton2', 'assets/buttons/LateNighCoffe/Green/startBtn2.png');
+        this.load.image('helpButton', 'assets/buttons/LateNighCoffe/Green/helpBtn1.png');
+        this.load.image('helpButton2', 'assets/buttons/LateNighCoffe/Green/helpBtn2.png');
+        this.load.image('settingsButton', 'assets/buttons/LateNighCoffe/Green/settingsBtn1.png');
+        this.load.image('settingsButton2', 'assets/buttons/LateNighCoffe/Green/settingsBtn2.png');
+        this.load.image('retryButton', 'assets/buttons/LateNighCoffe/Green/retryBtn1.png');
+        this.load.image('retryButton2', 'assets/buttons/LateNighCoffe/Green/retryBtn2.png');
+        this.load.image('backButton', 'assets/buttons/LateNighCoffe/Green/backBtn1.png');
+        this.load.image('backButton2', 'assets/buttons/LateNighCoffe/Green/backBtn2.png');
+        this.load.image('soundOnButton', 'assets/buttons/LateNighCoffe/Green/soundOnBtn.png');
+        this.load.image('soundOffButton', 'assets/buttons/LateNighCoffe/Green/soundOffBtn.png');
         this.load.image('ladder', 'assets/sprites/ladder.png');
         this.load.image('gem', 'assets/sprites/gold.png')
     }
@@ -56,13 +68,27 @@ class BootScene extends Phaser.Scene {
     }
     
     loadAudio() {
+        // music
         // this.load.audio("bgmusic", [
         // "../assets/bgmusic.mp3",
         // "../assets/bgmusic.ogg",
         // ]);
         // sfx
-        this.hoverSound = this.load.audio('hover', 'assets/sfx/hover.ogg')
-        this.clickSound = this.load.audio('click', 'assets/sfx/click.ogg')
+        this.hoverSound = this.load.audio('hover', [
+            "assets/sfx/ogg/hover.ogg",
+            "assets/sfx/mp3/hover.mp3"]);
+        this.clickSound = this.load.audio('click', [
+            "assets/sfx/ogg/click.ogg",
+            "assets/sfx/mp3/click.mp3"]);
+        this.collectSound = this.load.audio('collect', [
+            "assets/sfx/ogg/collect.ogg",
+            "assets/sfx/mp3/collect.mp3"]);
+        this.squishSound = this.load.audio('squish', [
+            "assets/sfx/ogg/squish.ogg",
+            "assets/sfx/mp3/squish.mp3"]);
+        this.hurtSound = this.load.audio('hurt', [
+            "assets/sfx/ogg/hurt.ogg",
+            "assets/sfx/mp3/hurt.mp3"]);
     }
     
     create() {
