@@ -23,54 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scenes/03_HelpScene.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scenes/06_EndScene.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scenes/07_DeathScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 1.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Blue/Blue Button 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/Green Button4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Green/StartButton.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Metal/Metal Button4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Orange/Orange Button4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Pink/Pink &amp; Gold Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Red/Red Button3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/buttons/LateNighCoffe/Rock/Rock Button2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/menuBG.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/menuBG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/menuBGs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sfx/click.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sfx/click.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sfx/hover.ogg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sfx/hover.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sprites/gold.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sprites/gold.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/UiButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UiButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/01_BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/01_BootScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/02_TitleScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/02_TitleScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/03_OptionScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_OptionScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/05_GameScene.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/04_UiScene.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/05_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/05_GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +109,7 @@
       <workItem from="1606383285038" duration="2387000" />
       <workItem from="1606400143996" duration="2602000" />
       <workItem from="1606403268848" duration="11046000" />
-      <workItem from="1606481246545" duration="19660000" />
+      <workItem from="1606481246545" duration="20850000" />
     </task>
     <servers />
   </component>

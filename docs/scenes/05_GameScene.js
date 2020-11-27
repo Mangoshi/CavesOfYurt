@@ -202,9 +202,12 @@ class GameScene extends Phaser.Scene {
     createClassicInputs() {
         this.cursors = this.input.keyboard.createCursorKeys();
         this.f1 = this.input.keyboard.addKey('F1');
+        this.wKey = this.input.keyboard.addKey('W');
+        this.aKey = this.input.keyboard.addKey('A');
+        this.dKey = this.input.keyboard.addKey('D');
 
         // if the LEFT arrow key is down
-        if (this.cursors.left.isDown)
+        if (this.cursors.left.isDown || this.aKey.isDown)
         {
             this.player.body.setVelocityX(-this.walkSpeed); // move left
             this.player.anims.play("left", true); // play animation with key 'left'
@@ -215,7 +218,7 @@ class GameScene extends Phaser.Scene {
         }
 
         // if the RIGHT arrow key is down
-        else if (this.cursors.right.isDown)
+        else if (this.cursors.right.isDown || this.dKey.isDown)
         {
             this.player.body.setVelocityX(this.walkSpeed);
             this.player.anims.play("right", true);
@@ -226,7 +229,7 @@ class GameScene extends Phaser.Scene {
         }
 
         // if the UP arrow key is down or spacebar & player is on ground
-        else if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor())
+        else if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor())
         {
             this.player.body.setVelocityY(-this.jumpHeight);
             this.player.anims.play("jump", true);
