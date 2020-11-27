@@ -14,4 +14,8 @@ https://iadt-y2-swproject.github.io/sw-project-ca1-Mangoshi/
 * *If you get all 100, you can spend the rest of your days happily, knowing you're the true champion of my little game.*
 
 ## Controls
-* Movement: CURSOR KEYS
+#### Movement
+LEFT & RIGHT CURSOR KEYS
+
+#### Jump
+UP CURSOR KEY *or* SPACE
