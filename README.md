@@ -1,6 +1,6 @@
 # Caves Of Yurt 
 
-* Originally intended to be like Spelunky but that was an incredibly unrealistic goal :)
+Originally intended to be like Spelunky but that was an incredibly unrealistic goal :)
 
 ## Link To Live Site
 https://iadt-y2-swproject.github.io/sw-project-ca1-Mangoshi/
