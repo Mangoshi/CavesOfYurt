@@ -16,14 +16,13 @@ class GameScene extends Phaser.Scene {
 
     create() {
         console.log("calling functions");
-        this.createBackground();
         this.createTilemap();
         this.createPlayer();
         this.createEnemies();
         this.createTreasure();
         this.createAudio();
         this.createCamera();
-        this.createDebugging()
+        this.createText();
     }
 
     createTilemap() {
@@ -43,14 +42,11 @@ class GameScene extends Phaser.Scene {
         this.solidLayer.setCollisionByExclusion(-1, true);
     }
 
-    createBackground() {
-
-    }
-
     createPlayer() {
-        this.player = this.physics.add.sprite(48, 48, "player");
         this.playerAlive = true;
-        this.player.score = 0;
+        this.playerScore = 0;
+
+        this.player = this.physics.add.sprite(48, 48, "player");
         this.player.body.setGravityY(300);
         this.player.setCollideWorldBounds(true);
         this.physics.add.collider(this.solidLayer, this.player);
@@ -94,8 +90,29 @@ class GameScene extends Phaser.Scene {
     }
 
     createTreasure() {
-        // this.treasure = this.add.group();
-        // this.treasure.enableBody = true;
+        // this.gem = this.physics.add.sprite(256, 48, "gem");
+        this.gems = this.physics.add.group();
+        let gemTouched = false;
+
+        for (let i= 0; i < 100; i++){
+            const x = Phaser.Math.RND.between(32, this.solidLayer.width - 32);
+            const y = Phaser.Math.RND.between(32, this.solidLayer.height - 32);
+            this.gem = this.gems.create(x, y, 'gem');
+            this.gem.body.setGravityY(200);
+            this.gem.setCollideWorldBounds(true);
+            this.physics.add.collider(this.solidLayer, this.gem);
+            this.physics.add.collider(this.player, this.gem, this.gemTouch, null, this);
+
+            this.gemTouch = function(player, gem) {
+                gem.visible = false;
+                gem.body.enable = false;
+                this.playerScore++;
+                console.log("gem touched");
+            }
+        }
+    }
+
+    gemTouchCheck(){
 
     }
 
@@ -173,7 +190,7 @@ class GameScene extends Phaser.Scene {
     }
 
     createAudio() {
-
+        this.load.audio('click', 'assets/sfx/click.ogg');
     }
 
     createClassicInputs() {
@@ -236,12 +253,15 @@ class GameScene extends Phaser.Scene {
         this.ladder = this.add.image(328, 120, "ladder");
     }
 
-    createDebugging() {
+    createText() {
+        this.pScore = this.add.text(8, 8, "Treasure: ", {font: '16px Courier', fill: '#00ff00'});
         this.pxText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
         this.pyText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
     }
 
-    updateDebugging() {
+    updateText() {
+        let score = this.pScore.setText("Treasure: " + this.playerScore);
+        score.setScrollFactor(0);
         if (this.debugOn===true) {
             this.pxText.setText("playerX: " + Math.floor(this.player.x));
             this.pxText.x = this.player.x - 32;
@@ -250,18 +270,28 @@ class GameScene extends Phaser.Scene {
             this.pyText.setText("playerY: " + Math.floor(this.player.y));
             this.pyText.x = this.player.x - 32;
             this.pyText.y = this.player.y - 32;
+
         } else {
             this.pxText.setText("");
             this.pyText.setText("");
         }
     }
 
+    scoreSystem(){
+        // if(this.slimes[i].collided)
+
+    }
+
     update() {
-        this.updateDebugging();
+        this.scoreSystem();
+        this.updateText();
+        this.gemTouchCheck();
+        // this.updateDebugging();
         this.createClassicInputs();
         for(let i = 0; i < this.slimes.length; i++){
             slimeTracking(this.slimes[i], this.player);
-            slimeKill(this.slimes[i], this.player, this);
+            slimeStomp(this.slimes[i], this);
+            slimeDamage(this.slimes[i], this.player, this);
         }
     }
 

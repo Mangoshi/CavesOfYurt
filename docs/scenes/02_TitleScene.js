@@ -9,6 +9,8 @@ class TitleScene extends Phaser.Scene {
     }
 
     create() {
+        this.hoverSound = this.load.audio('hover', 'assets/sfx/hover.ogg');
+        this.clickSound = this.load.audio('click', 'assets/sfx/click.ogg');
 
         this.add.image(this.scaleW/2, this.scaleH/2, 'menuBackground');
 
@@ -26,12 +28,12 @@ class TitleScene extends Phaser.Scene {
     update() {
         // listen for events
         this.startGameButton.on('pointerdown', () => {
-            game.sound.play("click");
+            this.clickSound.play("click");
             console.log("clicked");
         });
 
         this.startGameButton.on('pointerover', () => {
-            game.sound.play("hover");
+            this.hoverSound.play("hover");
             console.log("hover");
         });
     }

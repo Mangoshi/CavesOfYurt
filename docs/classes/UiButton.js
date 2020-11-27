@@ -13,6 +13,8 @@ class UiButton extends Phaser.GameObjects.Container {
         this.createButton();
         // add this container to our Phaser Scene
         this.scene.add.existing(this);
+        // this.clickSound = scene.clickSound;
+        // this.hoverSound = scene.hoverSound;
     }
 
     createButton() {
@@ -37,10 +39,12 @@ class UiButton extends Phaser.GameObjects.Container {
         // listen for events
         this.button.on('pointerdown', () => {
             this.targetCallback();
+            // this.clickSound.play('click');
         });
 
         this.button.on('pointerover', () => {
             this.button.setTexture(this.hoverKey);
+            // this.hoverSound.play('hover');
         });
 
         this.button.on('pointerout', () => {

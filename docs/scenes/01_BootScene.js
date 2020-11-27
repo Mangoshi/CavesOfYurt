@@ -22,6 +22,7 @@ class BootScene extends Phaser.Scene {
         this.load.image('button1', 'assets/buttons/LateNighCoffe/Green/startBtn1.png');
         this.load.image('button2', 'assets/buttons/LateNighCoffe/Green/startBtn2.png');
         this.load.image('ladder', 'assets/sprites/ladder.png');
+        this.load.image('gem', 'assets/sprites/gold.png')
     }
 
     loadFonts(){
@@ -30,11 +31,6 @@ class BootScene extends Phaser.Scene {
     }
     
     loadSpriteSheets() {
-        // this.load.spritesheet("player", "assets/sprites/faune2.png", {
-        //     frameWidth: 17,
-        //     frameHeight: 22,
-        //     spacing: 1,
-        // });
         this.load.spritesheet("player", "assets/sprites/girl16.png", {
             frameWidth: 16,
             frameHeight: 16,
@@ -65,8 +61,8 @@ class BootScene extends Phaser.Scene {
         // "../assets/bgmusic.ogg",
         // ]);
         // sfx
-        // this.hoverSound = game.load.audio('hover', 'assets/sfx/hover.wav')
-        // this.clickSound = game.load.audio('click', 'assets/sfx/click.wav')
+        this.hoverSound = this.load.audio('hover', 'assets/sfx/hover.ogg')
+        this.clickSound = this.load.audio('click', 'assets/sfx/click.ogg')
     }
     
     create() {

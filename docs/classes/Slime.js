@@ -11,7 +11,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
         // enemy properties
 
         this.body.setGravityY(300);
-        this.setScale(1.3,1.0);
+        this.setScale(1,1);
         this.setCollideWorldBounds(true);
         this.distanceAway = function (a, b) {
             return Math.abs(a - b);
@@ -65,7 +65,7 @@ function slimeTracking(slime, player){
             // console.log("seeking left");
             slime.setVelocityX(-slimeSpeed);
             slime.anims.play("leftS", true);
-            slime.setScale(1.3, 1);
+            slime.setScale(1, 1);
             slime.setOffset(0, 0);
 
         // If the player is to right of slime
@@ -73,7 +73,7 @@ function slimeTracking(slime, player){
             // console.log("seeking right");
             slime.setVelocityX(+slimeSpeed);
             slime.anims.play("rightS", true);
-            slime.setScale(-1.3, 1.0);
+            slime.setScale(-1, 1.0);
             slime.setOffset(16, 0);
         }
     } else {
@@ -82,7 +82,7 @@ function slimeTracking(slime, player){
     }
 }
 
-function slimeKill(slime, player, scene) {
+function slimeStomp(slime, scene) {
     // console.log(player.y);
     // console.log(slime.y);
 
@@ -93,22 +93,15 @@ function slimeKill(slime, player, scene) {
         slime.alpha = 0;
         slime.body.enable = false;
     }
+}
 
-    // Had to use this overarching if statement to avoid a collision detection bug..
-    // Without checking for the y difference between slime and player the corners of the bounding box
-    // would kill the player even if only landing on the top of the slime.
-    // Without checking if the body of the slime is enabled, the player would die upon reaching the bottom,
-    // unless they landed right in the middle of the slime thus not intersecting with the sides at all.
-    // if (distanceAway(player.y, slime.y) < 1 && slime.body.enable===true) {
+function slimeDamage(slime, player, scene){
+    // If touching any side of a slime other than their top
+    if (slime.body.touching.right || slime.body.touching.left || slime.body.touching.down) {
+        // player gets killed
+        player.alive = false;
+    }
 
-    // Discovered the glitch was down to using an overlap from our sample project PLUS a collider,
-    // so now I've taken that out, the collider seems to be functioning correctly.
-        if (slime.body.touching.right || slime.body.touching.left || slime.body.touching.bottom) {
-            // player is dead
-            player.alive = false;
-            player.alpha = .5;
-        }
-    // }
     if (player.alive === false) {
         scene.gameOver();
     }

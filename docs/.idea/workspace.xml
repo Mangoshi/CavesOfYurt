@@ -25,7 +25,10 @@
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Slime.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/UiButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/UiButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/01_BootScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/01_BootScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/02_TitleScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/02_TitleScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/04_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +106,9 @@
       <workItem from="1606309900533" duration="27155000" />
       <workItem from="1606343229485" duration="7490000" />
       <workItem from="1606383285038" duration="2387000" />
-      <workItem from="1606400143996" duration="1630000" />
+      <workItem from="1606400143996" duration="2602000" />
+      <workItem from="1606403268848" duration="11046000" />
+      <workItem from="1606481246545" duration="5967000" />
     </task>
     <servers />
   </component>
@@ -131,10 +136,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606387644452" />
-    <state x="331" y="332" key="SettingsEditor" timestamp="1606343215561">
+    <state x="331" y="332" key="SettingsEditor" timestamp="1606403247778">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="331" y="332" key="SettingsEditor/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606343215561" />
+    <state x="331" y="332" key="SettingsEditor/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606403247778" />
     <state x="354" y="299" width="585" height="801" key="find.popup" timestamp="1606310417897">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
