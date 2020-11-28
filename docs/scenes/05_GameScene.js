@@ -11,15 +11,17 @@ class GameScene extends Phaser.Scene {
         this.debugOn = false;
         // this.treasure;
         // this.treasureScore = 0;
+        this.playerTouchingSlime = false;
     }
 
     create() {
         console.log("calling create functions");
+        this.createAudio();
         this.createTilemap();
         this.createPlayer();
         this.createEnemies();
         this.createTreasure();
-        this.createAudio();
+        this.createFinish();
         this.createCamera();
         this.createText();
     }
@@ -45,7 +47,7 @@ class GameScene extends Phaser.Scene {
         this.playerAlive = true;
         this.playerScore = 0;
 
-        this.player = this.physics.add.sprite(48, 48, "player");
+        this.player = this.physics.add.sprite(48, 48, "player"); // 64, 550
         this.player.body.setGravityY(300);
         this.player.setCollideWorldBounds(true);
         this.physics.add.collider(this.solidLayer, this.player);
@@ -99,7 +101,7 @@ class GameScene extends Phaser.Scene {
             this.gem.body.setGravityY(200);
             this.gem.setCollideWorldBounds(true);
             this.physics.add.collider(this.solidLayer, this.gem);
-            this.physics.add.collider(this.player, this.gem, this.gemTouch, null, this);
+            this.physics.add.overlap(this.player, this.gem, this.gemTouch, null, this);
 
             this.gemTouch = function(player, gem) {
                 gem.visible = false;
@@ -111,14 +113,10 @@ class GameScene extends Phaser.Scene {
         }
     }
 
-    // getTileProperties() {
-    //     console.log(this.solidLayer.getTileAt(8, 8));
-    // }
-
     createEnemies() {
         // Making an array of slimes
-        this.slimes = []
-        // this.slimesDead = [];
+        this.slimes = [];
+        this.slimesDead = [];
         let newSlimeName = 0;
 
         // 0 - 200
@@ -184,26 +182,22 @@ class GameScene extends Phaser.Scene {
         this.slimes[57] = new Slime(this, 2255, 440, String(newSlimeName++));
 
         this.slimes.forEach((slime) => {
-            this.physics.add.collider(this.player, slime);
+            let playerSlimeCollider = this.physics.add.collider(this.player, slime, function(){
+                this.squishSound.play();
+                slime.body.enable = false;
+                slime.alpha = 0;
+                this.slimesDead.push(slime);
+            }, function(){
+                this.physics.world.removeCollider(playerSlimeCollider);
+            }, this);
         })
     }
 
     createAudio() {
-    this.load.audio('click', 'assets/sfx/click.ogg');
-    this.squishSound = this.sound.add('squish', {volume: 0.3});
-    this.deathSound = this.sound.add('hurt', {volume: 0.3});
-    this.collectSound = this.sound.add('collect', {volume: 0.1});
+        this.squishSound = this.sound.add('squish', {volume: 0.3, loop: false});
+        this.deathSound = this.sound.add('hurt', {volume: 0.3});
+        this.collectSound = this.sound.add('collect', {volume: 0.1});
     }
-
-    // toggleMute() {
-    //     if (!this.game.sound.mute) {
-    //         this.game.sound.mute = true;
-    //         // this.soundButton.tint = 16711680;
-    //     } else {
-    //         this.game.sound.mute = false;
-    //         // this.soundButton.tint = 16777215;
-    //     }
-    // }
 
 
     createClassicInputs() {
@@ -212,6 +206,14 @@ class GameScene extends Phaser.Scene {
         this.wKey = this.input.keyboard.addKey('W');
         this.aKey = this.input.keyboard.addKey('A');
         this.dKey = this.input.keyboard.addKey('D');
+        this.escapeKey = this.input.keyboard.addKey('ESC');
+
+        if(this.escapeKey.isDown){
+            this.scene.start('Title', {
+                playerScore: this.playerScore,
+                playerKills: this.slimesDead.length
+            });
+        }
 
         if(retroControls) {
             // if the LEFT arrow key is down
@@ -234,7 +236,7 @@ class GameScene extends Phaser.Scene {
                 }
             }
 
-            // if the UP arrow key is down or spacebar & player is on ground
+            // if the UP arrow key is down or space while player is on ground
             else if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) {
                 this.player.body.setVelocityY(-this.jumpHeight);
                 this.player.anims.play("jump", true);
@@ -248,7 +250,7 @@ class GameScene extends Phaser.Scene {
                 this.player.anims.play("idle", true); // play 'idle' animation
             }
         } else {
-            // if the LEFT arrow key is down
+            // if the A key is down
             if (this.aKey.isDown) {
                 this.player.body.setVelocityX(-this.walkSpeed); // move left
                 this.player.anims.play("left", true); // play animation with key 'left'
@@ -258,7 +260,7 @@ class GameScene extends Phaser.Scene {
                 }
             }
 
-            // if the RIGHT arrow key is down
+            // if the D key is down
             else if (this.dKey.isDown) {
                 this.player.body.setVelocityX(this.walkSpeed);
                 this.player.anims.play("right", true);
@@ -268,7 +270,7 @@ class GameScene extends Phaser.Scene {
                 }
             }
 
-            // if the UP arrow key is down or spacebar & player is on ground
+            // if the W key is down or space while player is on ground
             else if ((this.cursors.space.isDown || this.wKey.isDown) && this.player.body.onFloor()) {
                 this.player.body.setVelocityY(-this.jumpHeight);
                 this.player.anims.play("jump", true);
@@ -290,28 +292,32 @@ class GameScene extends Phaser.Scene {
     this.camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     // make the camera follow the player
     this.camera.startFollow(this.player);
+    // zoom camera
     this.camera.setZoom(1);
+    // offset the camera but continue following player
     this.camera.setFollowOffset(0,36);
+    // round the pixel values (read somewhere it's good for avoiding weird pixel jank)
     this.camera.roundPx = true;
     }
 
-    createLadder() {
-        this.ladder = this.add.image(328, 120, "ladder");
-    }
-
     createText() {
+        // Add text elements
         this.pScore = this.add.text(8, 8, "Treasure: ", {font: '16px Courier', fill: '#00ff00'});
-        // this.pKills = this.add.text(256, 8, "Kills: ", {font: '16px Courier', fill: '#00ff00'});
+        this.pKills = this.add.text(280, 8, "Kills: ", {font: '16px Courier', fill: '#00ff00'});
         this.pxText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
         this.pyText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
     }
 
     updateText() {
+        // Update text elements set in createText()
         let score = this.pScore.setText("Treasure: " + this.playerScore);
-        // let kills = this.pKills.setText("Kills: " + this.slimesDead.length);
+        let kills = this.pKills.setText("Kills: " + this.slimesDead.length);
+        // Force score & kills counter to move with camera
         score.setScrollFactor(0);
-        // kills.setScrollFactor(0);
+        kills.setScrollFactor(0);
+        // If F1 has been pressed to enable debug
         if (this.debugOn===true) {
+            // Update pxText & pyText to show player coordinates above player head
             this.pxText.setText("playerX: " + Math.floor(this.player.x));
             this.pxText.x = this.player.x - 32;
             this.pxText.y = this.player.y - 44;
@@ -321,58 +327,55 @@ class GameScene extends Phaser.Scene {
             this.pyText.y = this.player.y - 32;
 
         } else {
+            // Else set the text to an empty string
             this.pxText.setText("");
             this.pyText.setText("");
         }
     }
 
-    scoreSystem(){
-        // if(this.slimes[i].collided)
-
+    createFinish() {
+        // Create physics sprite of key "block" and place at end coordinates
+        this.finishBlock = this.physics.add.sprite(48, 576, "block");
+        // Add collision detection between player & finishBlock
+        this.physics.add.overlap(this.player, this.finishBlock);
     }
 
-    update() {
-        let playerTouchingSlime = false;
+    checkFinish() {
+        // If player touches top of finishBlock
+        if(this.finishBlock.body.touching.up){
+            // Run gameWin function
+            this.gameWin();
+        }
+    }
 
-        console.log(slimeTouchPlayer);
-        this.scoreSystem();
+    update(time, deltaTime) {
+        // Call update functions
         this.updateText();
-        // this.updateDebugging();
         this.createClassicInputs();
-        // for(let i = 0; i < this.slimes.length; i++){
-        //     slimeTracking(this.slimes[i], this.player);
-        //     slimeStomp(this.slimes[i], this);
-        //     slimeDamage(this.slimes[i], this.player, this);
-        // }
+        this.checkFinish();
 
+        // For each slime in slimes array, run slime functions
         this.slimes.forEach((slime) => {
             slimeTracking(slime, this.player);
-            playerTouchingSlime = slimeColliding(slime, this.player);
-
-            if (playerTouchingSlime) {
-                slimeStomp(slime, this);
-                this.squishSound.play();
-            }
-
             slimeDamage(slime, this.player, this);
-        });
+            });
     }
-
-    renderDebug() {
-        // game.debug.cameraInfo(this.camera, 32, 32);
-        // game.debug.spriteCoords(player, 32, 500);
-        // this.map.renderDebug();
-    }
-    
 
     gameOver() {
-        this.scene.start('Death');
+        // Start death scene and pass score variables
+        this.scene.start('Death', {
+            playerScore: this.playerScore,
+            playerKills: this.slimesDead.length
+        });
+        // Play death sound
         this.deathSound.play();
     }
 
     gameWin() {
+        // Start win scene and pass score variables
         this.scene.start('End', {
-            // this.deathSound.play();
+            playerScore: this.playerScore,
+            playerKills: this.slimesDead.length
         });
     }
 }

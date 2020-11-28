@@ -42,6 +42,7 @@ class BootScene extends Phaser.Scene {
         this.load.image('controlsButton4', 'assets/buttons/LateNighCoffe/Green/controlsButton4.png');
         this.load.image('ladder', 'assets/sprites/ladder.png');
         this.load.image('gem', 'assets/sprites/gold.png')
+        this.load.image('block', 'assets/sprites/block.png')
     }
 
     loadFonts(){

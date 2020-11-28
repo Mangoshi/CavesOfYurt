@@ -1,5 +1,3 @@
-let slimeTouchPlayer = false;
-
 class Slime extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, x, y, name) {
         super(scene, x, y, 'slime');
@@ -9,6 +7,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.collider(scene.solidLayer, this);
         // scene.physics.add.collider(this, this);
         this.myName = name;
+        this.tag = "Slime"
 
         console.log("Creating Slime: " + this.myName);
 
@@ -16,7 +15,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
         // enemy properties
 
         this.body.setGravityY(300);
-        this.setScale(1,1);
+        this.setScale(1,0.8);
         this.setCollideWorldBounds(true);
         this.distanceAway = function (a, b) {
             return Math.abs(a - b);
@@ -70,7 +69,7 @@ function slimeTracking(slime, player){
             // console.log("seeking left");
             slime.setVelocityX(-slimeSpeed);
             slime.anims.play("leftS", true);
-            slime.setScale(1, 1);
+            slime.setScale(1, 0.8);
             slime.setOffset(0, 0);
 
         // If the player is to right of slime
@@ -78,38 +77,13 @@ function slimeTracking(slime, player){
             // console.log("seeking right");
             slime.setVelocityX(+slimeSpeed);
             slime.anims.play("rightS", true);
-            slime.setScale(-1, 1.0);
+            slime.setScale(-1, 0.8);
             slime.setOffset(16, 0);
         }
     } else {
         slime.setVelocityX(0);
         slime.anims.play("idleS", true);
     }
-}
-
-function slimeColliding(slime, scene) {
-    return (slime.body.touching.up);
-}
-
-function slimeStomp(slime, scene) {
-    // console.log(player.y);
-    // console.log(slime.y);
-
-    console.log(slime.myName);
-    // * player is jumping on enemy, kill it
-    // any syntax I tried from elsewhere would not work (such as the destroy() and kill() functions)
-    // so I just used a hack and hide the enemy while disabling its physics
-    slime.alpha = 0;
-    slime.body.enable = false;
-
-    slimeTouchPlayer = false;
-    // scene.slimesDead.push(slime);
-    // if(this.slimeAlive) {
-    //     scene.slimesDead.push(slime);
-    //     slime.body.enable = false;
-    //     scene.squishSound.play();
-    //     this.slimeAlive = false;
-    // }
 }
 
 function slimeDamage(slime, player, scene){
