@@ -10,7 +10,7 @@ class HelpScene extends Phaser.Scene {
 
     create() {
         // create title
-        this.titleText = this.add.text(this.scaleW / 2, 30, 'The goal of the game: ', {
+        this.titleText = this.add.text(this.scaleW / 2, 40, 'The goal of the game: ', {
             fontSize: '16px',
             fill: '#fff'
         });
@@ -36,11 +36,11 @@ class HelpScene extends Phaser.Scene {
             fontSize: '16px',
             fill: '#fff'
         });
-        this.movementControls = this.add.text(this.scaleW / 2, 170, 'MOVEMENT: Left & Right Cursor Keys', {
+        this.movementControls = this.add.text(this.scaleW / 2, 170, 'MOVEMENT: Left & Right or WASD', {
             fontSize: '10px',
             fill: '#fff'
         });
-        this.jumpControls = this.add.text(this.scaleW / 2, 190, 'JUMP: Up Cursor Key or Space', {
+        this.jumpControls = this.add.text(this.scaleW / 2, 190, 'JUMP: Up or Space', {
             fontSize: '10px',
             fill: '#fff'
         });

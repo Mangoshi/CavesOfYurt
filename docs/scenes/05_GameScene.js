@@ -106,6 +106,7 @@ class GameScene extends Phaser.Scene {
                 gem.visible = false;
                 gem.body.enable = false;
                 this.playerScore++;
+                this.collectSound.play();
                 // console.log("gem touched");
             }
         }
@@ -118,6 +119,7 @@ class GameScene extends Phaser.Scene {
     createEnemies() {
         // Making an array of slimes
         this.slimes = []
+        // this.slimesDead = [];
         // 0 - 200
         this.slimes[0] = new Slime(this, 248, 152);
         this.slimes[1] = new Slime(this, 200, 152);
@@ -186,17 +188,20 @@ class GameScene extends Phaser.Scene {
 
     createAudio() {
         this.load.audio('click', 'assets/sfx/click.ogg');
+        this.squishSound = this.sound.add('squish', {volume: 0.3});
+        this.deathSound = this.sound.add('hurt', {volume: 0.3});
+        this.collectSound = this.sound.add('collect', {volume: 0.1});
     }
 
-    toggleMute() {
-        if (!this.game.sound.mute) {
-            this.game.sound.mute = true;
-            // this.soundButton.tint = 16711680;
-        } else {
-            this.game.sound.mute = false;
-            // this.soundButton.tint = 16777215;
-        }
-    }
+    // toggleMute() {
+    //     if (!this.game.sound.mute) {
+    //         this.game.sound.mute = true;
+    //         // this.soundButton.tint = 16711680;
+    //     } else {
+    //         this.game.sound.mute = false;
+    //         // this.soundButton.tint = 16777215;
+    //     }
+    // }
 
 
     createClassicInputs() {
@@ -264,13 +269,16 @@ class GameScene extends Phaser.Scene {
 
     createText() {
         this.pScore = this.add.text(8, 8, "Treasure: ", {font: '16px Courier', fill: '#00ff00'});
+        // this.pKills = this.add.text(256, 8, "Kills: ", {font: '16px Courier', fill: '#00ff00'});
         this.pxText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
         this.pyText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
     }
 
     updateText() {
         let score = this.pScore.setText("Treasure: " + this.playerScore);
+        // let kills = this.pKills.setText("Kills: " + this.slimesDead.length);
         score.setScrollFactor(0);
+        // kills.setScrollFactor(0);
         if (this.debugOn===true) {
             this.pxText.setText("playerX: " + Math.floor(this.player.x));
             this.pxText.x = this.player.x - 32;
@@ -312,11 +320,12 @@ class GameScene extends Phaser.Scene {
 
     gameOver() {
         this.scene.start('Death');
+        this.deathSound.play();
     }
 
     gameWin() {
         this.scene.start('End', {
-
+            // this.deathSound.play();
         });
     }
 }

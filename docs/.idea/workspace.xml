@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Slime.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/03_HelpScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/03_HelpScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/05_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/05_GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +53,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/scenes" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/sw-project-ca1-jakewarrenblack/docs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -109,7 +111,8 @@
       <workItem from="1606383285038" duration="2387000" />
       <workItem from="1606400143996" duration="2602000" />
       <workItem from="1606403268848" duration="11046000" />
-      <workItem from="1606481246545" duration="20850000" />
+      <workItem from="1606481246545" duration="24072000" />
+      <workItem from="1606521329919" duration="2442000" />
     </task>
     <servers />
   </component>
@@ -141,10 +144,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="93" y="100" width="1088" height="1208" key="DiffContextDialog/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606496354731" />
-    <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606387644452">
+    <state x="610" y="442" key="FileChooserDialogImpl" timestamp="1606521886449">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606387644452" />
+    <state x="610" y="442" key="FileChooserDialogImpl/2560.0.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1606521886449" />
     <state x="331" y="332" key="SettingsEditor" timestamp="1606403247778">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
