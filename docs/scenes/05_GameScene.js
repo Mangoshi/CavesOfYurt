@@ -1,5 +1,4 @@
 class GameScene extends Phaser.Scene {
-    enemyTouched;
     constructor() {
         super('Game');
     }
@@ -120,77 +119,80 @@ class GameScene extends Phaser.Scene {
         // Making an array of slimes
         this.slimes = []
         // this.slimesDead = [];
+        let newSlimeName = 0;
+
         // 0 - 200
-        this.slimes[0] = new Slime(this, 248, 152);
-        this.slimes[1] = new Slime(this, 200, 152);
-        this.slimes[2] = new Slime(this, 696, 56);
-        this.slimes[3] = new Slime(this, 920, 56);
-        this.slimes[4] = new Slime(this, 1160, 88);
-        this.slimes[5] = new Slime(this, 1240, 88);
-        this.slimes[6] = new Slime(this, 1425, 120);
-        this.slimes[7] = new Slime(this, 1610, 104);
-        this.slimes[8] = new Slime(this, 1725, 72);
-        this.slimes[9] = new Slime(this, 2320, 152);
-        this.slimes[10] = new Slime(this, 2312, 72);
+        this.slimes[0] = new Slime(this, 248, 152, String(newSlimeName++));
+        this.slimes[1] = new Slime(this, 200, 152, String(newSlimeName++));
+        this.slimes[2] = new Slime(this, 696, 56, String(newSlimeName++));
+        this.slimes[3] = new Slime(this, 920, 56, String(newSlimeName++));
+        this.slimes[4] = new Slime(this, 1160, 88, String(newSlimeName++));
+        this.slimes[5] = new Slime(this, 1240, 88, String(newSlimeName++));
+        this.slimes[6] = new Slime(this, 1425, 120, String(newSlimeName++));
+        this.slimes[7] = new Slime(this, 1610, 104, String(newSlimeName++));
+        this.slimes[8] = new Slime(this, 1725, 72, String(newSlimeName++));
+        this.slimes[9] = new Slime(this, 2320, 152, String(newSlimeName++));
+        this.slimes[10] = new Slime(this, 2312, 72, String(newSlimeName++));
         // 200 - 400
-        this.slimes[11] = new Slime(this, 1800, 200);
-        this.slimes[12] = new Slime(this, 160, 232);
-        this.slimes[13] = new Slime(this, 310, 232);
-        this.slimes[14] = new Slime(this, 420, 232);
-        this.slimes[15] = new Slime(this, 594, 184);
-        this.slimes[16] = new Slime(this, 640, 152);
-        this.slimes[17] = new Slime(this, 750, 104);
-        this.slimes[18] = new Slime(this, 1200, 152);
-        this.slimes[19] = new Slime(this, 1550, 232);
-        this.slimes[20] = new Slime(this, 2172, 216);
-        this.slimes[21] = new Slime(this, 1310, 200);
-        this.slimes[22] = new Slime(this, 1150, 200);
-        this.slimes[23] = new Slime(this, 915, 216);
-        this.slimes[24] = new Slime(this, 840, 216);
-        this.slimes[25] = new Slime(this, 740, 216);
-        this.slimes[26] = new Slime(this, 602, 312);
-        this.slimes[27] = new Slime(this, 752, 280);
-        this.slimes[28] = new Slime(this, 380, 280);
+        this.slimes[11] = new Slime(this, 1800, 200, String(newSlimeName++));
+        this.slimes[12] = new Slime(this, 160, 232, String(newSlimeName++));
+        this.slimes[13] = new Slime(this, 310, 232, String(newSlimeName++));
+        this.slimes[14] = new Slime(this, 420, 232, String(newSlimeName++));
+        this.slimes[15] = new Slime(this, 594, 184, String(newSlimeName++));
+        this.slimes[16] = new Slime(this, 640, 152, String(newSlimeName++));
+        this.slimes[17] = new Slime(this, 750, 104, String(newSlimeName++));
+        this.slimes[18] = new Slime(this, 1200, 152, String(newSlimeName++));
+        this.slimes[19] = new Slime(this, 1550, 232, String(newSlimeName++));
+        this.slimes[20] = new Slime(this, 2172, 216, String(newSlimeName++));
+        this.slimes[21] = new Slime(this, 1310, 200, String(newSlimeName++));
+        this.slimes[22] = new Slime(this, 1150, 200, String(newSlimeName++));
+        this.slimes[23] = new Slime(this, 915, 216, String(newSlimeName++));
+        this.slimes[24] = new Slime(this, 840, 216, String(newSlimeName++));
+        this.slimes[25] = new Slime(this, 740, 216, String(newSlimeName++));
+        this.slimes[26] = new Slime(this, 602, 312, String(newSlimeName++));
+        this.slimes[27] = new Slime(this, 752, 280, String(newSlimeName++));
+        this.slimes[28] = new Slime(this, 380, 280, String(newSlimeName++));
         // 300 - 600
-        this.slimes[29] = new Slime(this, 284, 440);
-        this.slimes[30] = new Slime(this, 406, 440);
-        this.slimes[31] = new Slime(this, 559, 456);
-        this.slimes[32] = new Slime(this, 800, 440);
-        this.slimes[33] = new Slime(this, 1194, 440);
-        this.slimes[34] = new Slime(this, 1520, 520);
-        this.slimes[35] = new Slime(this, 1654, 440);
-        this.slimes[36] = new Slime(this, 2100, 520);
-        this.slimes[37] = new Slime(this, 2310, 520);
-        this.slimes[38] = new Slime(this, 2318, 312);
-        this.slimes[39] = new Slime(this, 2060, 312);
-        this.slimes[40] = new Slime(this, 1888, 280);
-        this.slimes[41] = new Slime(this, 1600, 296);
-        this.slimes[42] = new Slime(this, 1440, 280);
-        this.slimes[43] = new Slime(this, 960, 280);
-        this.slimes[44] = new Slime(this, 242, 392);
-        this.slimes[45] = new Slime(this, 462, 392);
-        this.slimes[46] = new Slime(this, 636, 392);
-        this.slimes[47] = new Slime(this, 865, 392);
-        this.slimes[48] = new Slime(this, 986, 360);
-        this.slimes[49] = new Slime(this, 1150, 392);
-        this.slimes[50] = new Slime(this, 1340, 360);
-        this.slimes[51] = new Slime(this, 1582, 360);
-        this.slimes[52] = new Slime(this, 1906, 392);
-        this.slimes[53] = new Slime(this, 2061, 360);
-        this.slimes[54] = new Slime(this, 1475, 472);
-        this.slimes[55] = new Slime(this, 1660, 440);
-        this.slimes[56] = new Slime(this, 2076, 472);
-        this.slimes[57] = new Slime(this, 2255, 440);
+        this.slimes[29] = new Slime(this, 284, 440, String(newSlimeName++));
+        this.slimes[30] = new Slime(this, 406, 440, String(newSlimeName++));
+        this.slimes[31] = new Slime(this, 559, 456, String(newSlimeName++));
+        this.slimes[32] = new Slime(this, 800, 440, String(newSlimeName++));
+        this.slimes[33] = new Slime(this, 1194, 440, String(newSlimeName++));
+        this.slimes[34] = new Slime(this, 1520, 520, String(newSlimeName++));
+        this.slimes[35] = new Slime(this, 1654, 440, String(newSlimeName++));
+        this.slimes[36] = new Slime(this, 2100, 520, String(newSlimeName++));
+        this.slimes[37] = new Slime(this, 2310, 520, String(newSlimeName++));
+        this.slimes[38] = new Slime(this, 2318, 312, String(newSlimeName++));
+        this.slimes[39] = new Slime(this, 2060, 312, String(newSlimeName++));
+        this.slimes[40] = new Slime(this, 1888, 280, String(newSlimeName++));
+        this.slimes[41] = new Slime(this, 1600, 296, String(newSlimeName++));
+        this.slimes[42] = new Slime(this, 1440, 280, String(newSlimeName++));
+        this.slimes[43] = new Slime(this, 960, 280, String(newSlimeName++));
+        this.slimes[44] = new Slime(this, 242, 392, String(newSlimeName++));
+        this.slimes[45] = new Slime(this, 462, 392, String(newSlimeName++));
+        this.slimes[46] = new Slime(this, 636, 392, String(newSlimeName++));
+        this.slimes[47] = new Slime(this, 865, 392, String(newSlimeName++));
+        this.slimes[48] = new Slime(this, 986, 360, String(newSlimeName++));
+        this.slimes[49] = new Slime(this, 1150, 392, String(newSlimeName++));
+        this.slimes[50] = new Slime(this, 1340, 360, String(newSlimeName++));
+        this.slimes[51] = new Slime(this, 1582, 360, String(newSlimeName++));
+        this.slimes[52] = new Slime(this, 1906, 392, String(newSlimeName++));
+        this.slimes[53] = new Slime(this, 2061, 360, String(newSlimeName++));
+        this.slimes[54] = new Slime(this, 1475, 472, String(newSlimeName++));
+        this.slimes[55] = new Slime(this, 1660, 440, String(newSlimeName++));
+        this.slimes[56] = new Slime(this, 2076, 472, String(newSlimeName++));
+        this.slimes[57] = new Slime(this, 2255, 440, String(newSlimeName++));
 
-
-
+        this.slimes.forEach((slime) => {
+            this.physics.add.collider(this.player, slime);
+        })
     }
 
     createAudio() {
-        this.load.audio('click', 'assets/sfx/click.ogg');
-        this.squishSound = this.sound.add('squish', {volume: 0.3});
-        this.deathSound = this.sound.add('hurt', {volume: 0.3});
-        this.collectSound = this.sound.add('collect', {volume: 0.1});
+    this.load.audio('click', 'assets/sfx/click.ogg');
+    this.squishSound = this.sound.add('squish', {volume: 0.3});
+    this.deathSound = this.sound.add('hurt', {volume: 0.3});
+    this.collectSound = this.sound.add('collect', {volume: 0.1});
     }
 
     // toggleMute() {
@@ -211,45 +213,75 @@ class GameScene extends Phaser.Scene {
         this.aKey = this.input.keyboard.addKey('A');
         this.dKey = this.input.keyboard.addKey('D');
 
-        // if the LEFT arrow key is down
-        if (this.cursors.left.isDown || this.aKey.isDown)
-        {
-            this.player.body.setVelocityX(-this.walkSpeed); // move left
-            this.player.anims.play("left", true); // play animation with key 'left'
+        if(retroControls) {
+            // if the LEFT arrow key is down
+            if (this.cursors.left.isDown) {
+                this.player.body.setVelocityX(-this.walkSpeed); // move left
+                this.player.anims.play("left", true); // play animation with key 'left'
 
-            if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor()){ // if player is moving & presses jump while not on the ground
-            this.player.body.setVelocityY(-this.jumpHeight); // jump up
+                if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) { // if player is moving & presses jump while not on the ground
+                    this.player.body.setVelocityY(-this.jumpHeight); // jump up
+                }
+            }
+
+            // if the RIGHT arrow key is down
+            else if (this.cursors.right.isDown) {
+                this.player.body.setVelocityX(this.walkSpeed);
+                this.player.anims.play("right", true);
+
+                if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) {
+                    this.player.body.setVelocityY(-this.jumpHeight);
+                }
+            }
+
+            // if the UP arrow key is down or spacebar & player is on ground
+            else if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()) {
+                this.player.body.setVelocityY(-this.jumpHeight);
+                this.player.anims.play("jump", true);
+            } else if (this.f1.isDown) {
+                this.debugOn = !this.debugOn;
+            }
+
+            // else if no key is being pressed
+            else {
+                this.player.body.setVelocityX(0);
+                this.player.anims.play("idle", true); // play 'idle' animation
+            }
+        } else {
+            // if the LEFT arrow key is down
+            if (this.aKey.isDown) {
+                this.player.body.setVelocityX(-this.walkSpeed); // move left
+                this.player.anims.play("left", true); // play animation with key 'left'
+
+                if ((this.cursors.space.isDown || this.wKey.isDown) && this.player.body.onFloor()) { // if player is moving & presses jump while not on the ground
+                    this.player.body.setVelocityY(-this.jumpHeight); // jump up
+                }
+            }
+
+            // if the RIGHT arrow key is down
+            else if (this.dKey.isDown) {
+                this.player.body.setVelocityX(this.walkSpeed);
+                this.player.anims.play("right", true);
+
+                if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor()) {
+                    this.player.body.setVelocityY(-this.jumpHeight);
+                }
+            }
+
+            // if the UP arrow key is down or spacebar & player is on ground
+            else if ((this.cursors.space.isDown || this.wKey.isDown) && this.player.body.onFloor()) {
+                this.player.body.setVelocityY(-this.jumpHeight);
+                this.player.anims.play("jump", true);
+            } else if (this.f1.isDown) {
+                this.debugOn = !this.debugOn;
+            }
+
+            // else if no key is being pressed
+            else {
+                this.player.body.setVelocityX(0);
+                this.player.anims.play("idle", true); // play 'idle' animation
             }
         }
-
-        // if the RIGHT arrow key is down
-        else if (this.cursors.right.isDown || this.dKey.isDown)
-        {
-            this.player.body.setVelocityX(this.walkSpeed);
-            this.player.anims.play("right", true);
-
-            if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor()){
-                this.player.body.setVelocityY(-this.jumpHeight);
-                }
-        }
-
-        // if the UP arrow key is down or spacebar & player is on ground
-        else if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor())
-        {
-            this.player.body.setVelocityY(-this.jumpHeight);
-            this.player.anims.play("jump", true);
-        }
-
-        else if (this.f1.isDown) {
-            this.debugOn = !this.debugOn;
-        }
-
-        // else if no key is being pressed
-        else {
-            this.player.body.setVelocityX(0);
-            this.player.anims.play("idle", true); // play 'idle' animation
-        }
-
     }
 
     createCamera(){
@@ -300,15 +332,30 @@ class GameScene extends Phaser.Scene {
     }
 
     update() {
+        let playerTouchingSlime = false;
+
+        console.log(slimeTouchPlayer);
         this.scoreSystem();
         this.updateText();
         // this.updateDebugging();
         this.createClassicInputs();
-        for(let i = 0; i < this.slimes.length; i++){
-            slimeTracking(this.slimes[i], this.player);
-            slimeStomp(this.slimes[i], this);
-            slimeDamage(this.slimes[i], this.player, this);
-        }
+        // for(let i = 0; i < this.slimes.length; i++){
+        //     slimeTracking(this.slimes[i], this.player);
+        //     slimeStomp(this.slimes[i], this);
+        //     slimeDamage(this.slimes[i], this.player, this);
+        // }
+
+        this.slimes.forEach((slime) => {
+            slimeTracking(slime, this.player);
+            playerTouchingSlime = slimeColliding(slime, this.player);
+
+            if (playerTouchingSlime) {
+                slimeStomp(slime, this);
+                this.squishSound.play();
+            }
+
+            slimeDamage(slime, this.player, this);
+        });
     }
 
     renderDebug() {

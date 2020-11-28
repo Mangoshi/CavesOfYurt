@@ -13,8 +13,8 @@ class UiButton extends Phaser.GameObjects.Container {
         this.createButton();
         // add this container to our Phaser Scene
         this.scene.add.existing(this);
-        this.click = scene.sound.add('click');
-        this.hover = scene.sound.add('hover');
+        this.click = game.sound.add('click');
+        this.hover = game.sound.add('hover');
 
     }
 

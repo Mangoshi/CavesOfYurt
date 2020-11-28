@@ -45,6 +45,6 @@ class TitleScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
-        this.scene.start(targetScene);
+        this.scene.start(targetScene , {retroControls: retroControls});
     }
 }

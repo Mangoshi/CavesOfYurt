@@ -13,6 +13,7 @@ class BootScene extends Phaser.Scene {
         this.loadTilemaps();
         // load audio
         this.loadAudio();
+        this.audioToCache();
         // load font
         // this.loadFonts();
     }
@@ -31,8 +32,14 @@ class BootScene extends Phaser.Scene {
         this.load.image('retryButton2', 'assets/buttons/LateNighCoffe/Green/retryBtn2.png');
         this.load.image('backButton', 'assets/buttons/LateNighCoffe/Green/backBtn1.png');
         this.load.image('backButton2', 'assets/buttons/LateNighCoffe/Green/backBtn2.png');
-        this.load.image('soundOnButton', 'assets/buttons/LateNighCoffe/Green/soundOnBtn.png');
-        this.load.image('soundOffButton', 'assets/buttons/LateNighCoffe/Green/soundOffBtn.png');
+        this.load.image('soundButton1', 'assets/buttons/LateNighCoffe/Green/soundBtn1.png');
+        this.load.image('soundButton2', 'assets/buttons/LateNighCoffe/Green/soundBtn2.png');
+        this.load.image('soundButton3', 'assets/buttons/LateNighCoffe/Green/soundBtn3.png');
+        this.load.image('soundButton4', 'assets/buttons/LateNighCoffe/Green/soundBtn4.png');
+        this.load.image('controlsButton1', 'assets/buttons/LateNighCoffe/Green/controlsButton1.png');
+        this.load.image('controlsButton2', 'assets/buttons/LateNighCoffe/Green/controlsButton2.png');
+        this.load.image('controlsButton3', 'assets/buttons/LateNighCoffe/Green/controlsButton3.png');
+        this.load.image('controlsButton4', 'assets/buttons/LateNighCoffe/Green/controlsButton4.png');
         this.load.image('ladder', 'assets/sprites/ladder.png');
         this.load.image('gem', 'assets/sprites/gold.png')
     }
@@ -89,6 +96,14 @@ class BootScene extends Phaser.Scene {
         this.hurtSound = this.load.audio('hurt', [
             "assets/sfx/ogg/hurt.ogg",
             "assets/sfx/mp3/hurt.mp3"]);
+    }
+
+    audioToCache() {
+        // this.hover = this.sound.add('hover');
+        // this.click = this.sound.add('click');
+        // this.collect = this.sound.add('collect');
+        // this.squish = this.sound.add('squish');
+        // this.hurt = this.sound.add('hurt');
     }
     
     create() {
