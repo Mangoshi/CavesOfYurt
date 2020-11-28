@@ -217,7 +217,7 @@ class GameScene extends Phaser.Scene {
             this.player.body.setVelocityX(-this.walkSpeed); // move left
             this.player.anims.play("left", true); // play animation with key 'left'
 
-            if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){ // if player is moving & presses jump while not on the ground
+            if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor()){ // if player is moving & presses jump while not on the ground
             this.player.body.setVelocityY(-this.jumpHeight); // jump up
             }
         }
@@ -228,7 +228,7 @@ class GameScene extends Phaser.Scene {
             this.player.body.setVelocityX(this.walkSpeed);
             this.player.anims.play("right", true);
 
-            if ((this.cursors.space.isDown || this.cursors.up.isDown) && this.player.body.onFloor()){
+            if ((this.cursors.space.isDown || this.cursors.up.isDown || this.wKey.isDown) && this.player.body.onFloor()){
                 this.player.body.setVelocityY(-this.jumpHeight);
                 }
         }

@@ -25,7 +25,7 @@
     <list default="true" id="16484f1d-c15d-4f8a-88c3-47a6185afdd3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Slime.js" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Slime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/03_HelpScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/03_HelpScene.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/04_OptionScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/04_OptionScene.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/05_GameScene.js" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/05_GameScene.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +112,7 @@
       <workItem from="1606400143996" duration="2602000" />
       <workItem from="1606403268848" duration="11046000" />
       <workItem from="1606481246545" duration="24072000" />
-      <workItem from="1606521329919" duration="2442000" />
+      <workItem from="1606521329919" duration="5665000" />
     </task>
     <servers />
   </component>

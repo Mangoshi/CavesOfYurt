@@ -86,7 +86,7 @@ function slimeStomp(slime, scene) {
     // console.log(player.y);
     // console.log(slime.y);
 
-    if (slime.body.touching.up && scene.player.body.touching.down) {
+    if (slime.body.touching.up && scene.player.body.touching.down && !scene.gem.touching.up) {
         // * player is jumping on enemy, kill it
         // any syntax I tried from elsewhere would not work (such as the destroy() and kill() functions)
         // so I just used a hack and hide the enemy while disabling its physics
