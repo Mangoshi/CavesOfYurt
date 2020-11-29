@@ -376,17 +376,17 @@ class GameScene extends Phaser.Scene {
 
 
     update(time, deltaTime) {
+        // For each slime in slimes array, run slime functions
+        this.slimes.forEach((slime) => {
+            slimeTracking(slime, this.player);
+            slimeDamage(slime, this.player, this);
+        });
+
         // Call update functions
         this.updateText();
         this.createClassicInputs();
         this.checkFinish();
         this.updateHighscore();
-
-        // For each slime in slimes array, run slime functions
-        this.slimes.forEach((slime) => {
-            slimeTracking(slime, this.player);
-            slimeDamage(slime, this.player, this);
-            });
     }
 
     gameOver() {
@@ -394,7 +394,7 @@ class GameScene extends Phaser.Scene {
         this.scene.start('Death', {
             playerScore: this.playerScore,
             // Reducing one from the slimesDead count to stop a kill from counting
-            playerKills: (this.slimesDead-1)
+            playerKills: this.slimesDead
         });
         // Play death sound
         this.deathSound.play();

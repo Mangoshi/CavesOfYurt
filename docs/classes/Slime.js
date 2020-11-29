@@ -90,6 +90,7 @@ function slimeDamage(slime, player, scene){
     // If touching any side of a slime other than their top
     if (slime.body.touching.right || slime.body.touching.left || slime.body.touching.down) {
         // player gets killed
+        scene.slimesDead -= 1;
         player.alive = false;
     }
 
