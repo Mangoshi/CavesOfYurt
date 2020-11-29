@@ -13,7 +13,7 @@ class TitleScene extends Phaser.Scene {
             this.playerScore = 0;
             this.playerKills = 0;
         }
-        console.log('init', data);
+        // console.log('init', data);
     }
 
     create() {

@@ -12,11 +12,11 @@ class GameScene extends Phaser.Scene {
         this.playerTouchingSlime = false;
         this.playerScore = data.playerScore;
         this.playerKills = data.playerKills;
-        console.log('init', data);
+        // console.log('init', data);
     }
 
     create() {
-        console.log("calling create functions");
+        // console.log("calling create functions");
         this.createAudio();
         this.createTilemap();
         this.createPlayer();
@@ -93,24 +93,24 @@ class GameScene extends Phaser.Scene {
     }
 
     createTreasure() {
-        // this.gem = this.physics.add.sprite(256, 48, "gem");
-        this.gems = this.physics.add.group();
+        // this.yurt = this.physics.add.sprite(256, 48, "yurt");
+        this.yurtage = this.physics.add.group();
 
         for (let i= 0; i < 100; i++){
             const x = Phaser.Math.RND.between(32, this.solidLayer.width - 32);
             const y = Phaser.Math.RND.between(32, this.solidLayer.height - 32);
-            this.gem = this.gems.create(x, y, 'gem');
-            this.gem.body.setGravityY(200);
-            this.gem.setCollideWorldBounds(true);
-            this.physics.add.collider(this.solidLayer, this.gem);
-            this.physics.add.overlap(this.player, this.gem, this.gemTouch, null, this);
+            this.yurt = this.yurtage.create(x, y, 'yurt');
+            this.yurt.body.setGravityY(200);
+            this.yurt.setCollideWorldBounds(true);
+            this.physics.add.collider(this.solidLayer, this.yurt);
+            this.physics.add.overlap(this.player, this.yurt, this.yurtTouch, null, this);
 
-            this.gemTouch = function(player, gem) {
-                gem.visible = false;
-                gem.body.enable = false;
+            this.yurtTouch = function(player, yurt) {
+                yurt.visible = false;
+                yurt.body.enable = false;
                 this.playerScore++;
                 this.collectSound.play();
-                // console.log("gem touched");
+                // console.log("yurt touched");
             }
         }
     }
@@ -307,7 +307,7 @@ class GameScene extends Phaser.Scene {
 
     createText() {
         // Add text elements
-        this.pScore = this.add.text(8, 8, "Treasure: ", {font: '16px Courier', fill: '#00ff00'});
+        this.pScore = this.add.text(8, 8, "Yurtage: ", {font: '16px Courier', fill: '#00ff00'});
         this.pKills = this.add.text(280, 8, "Kills: ", {font: '16px Courier', fill: '#00ff00'});
         this.pxText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
         this.pyText = this.add.text(0, 0, "", {font: '10px Courier', fill: '#00ff00'});
@@ -315,7 +315,7 @@ class GameScene extends Phaser.Scene {
 
     updateText() {
         // Update text elements set in createText()
-        let score = this.pScore.setText("Treasure: " + this.playerScore);
+        let score = this.pScore.setText("Yurtage: " + this.playerScore);
         let kills = this.pKills.setText("Kills: " + (this.slimesDead));
         // Force score & kills counter to move with camera
         score.setScrollFactor(0);
@@ -354,7 +354,7 @@ class GameScene extends Phaser.Scene {
     }
 
     createHighscoreVars(){
-        this.mostGems = 0;
+        this.mostYurtage = 0;
         this.mostKills = 0;
     }
 
@@ -362,15 +362,15 @@ class GameScene extends Phaser.Scene {
         if (this.slimesDead > this.mostKills)
         {
             this.mostKills = this.slimesDead;
-            console.log("mostKills: "+this.mostKills);
+            // console.log("mostKills: "+this.mostKills);
         }
-        if (this.playerScore > this.mostGems)
+        if (this.playerScore > this.mostYurtage)
         {
-            this.mostGems = this.playerScore;
-            console.log("mostGems: "+this.mostGems);
+            this.mostYurtage = this.playerScore;
+            // console.log("mostYurtage: "+this.mostYurtage);
         }
-        if (this.mostGems > localStorage.getItem("mostGems") || !localStorage.getItem("mostGems")) {
-            localStorage.setItem("mostGems", this.mostGems);
+        if (this.mostYurtage > localStorage.getItem("mostYurtage") || !localStorage.getItem("mostYurtage")) {
+            localStorage.setItem("mostYurtage", this.mostYurtage);
         }
         if (this.mostKills > localStorage.getItem("mostKills") || !localStorage.getItem("mostKills")) {
             localStorage.setItem("mostKills", this.mostKills);

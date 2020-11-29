@@ -10,37 +10,41 @@ class HelpScene extends Phaser.Scene {
 
     create() {
         // create title
-        this.titleText = this.add.text(this.scaleW / 2, 20, 'The goal of the game: ', {
+        this.titleText = this.add.text(this.scaleW / 2, 20, 'The goal', {
             fontSize: '16px',
             fill: '#FF69B4'
         });
         // create goals
-        this.goal1 = this.add.text(65, 40, '• Kill slimes by jumping on their heads', {
+        this.goal1 = this.add.text(65, 30, '• Kill slimes by jumping on their heads', {
             fontSize: '12px',
             fill: '#fff'
         });
-        this.goal2 = this.add.text(65, 60, '• Collect as many gems as you can', {
+        this.goal2 = this.add.text(65, 50, '• Collect as much yurtage as you can', {
             fontSize: '12px',
             fill: '#fff'
         });
-        this.goal3 = this.add.text(65, 80, '• Get to the bottom of the cave', {
+        this.goal3 = this.add.text(65, 70, '• Get to the bottom of the cave', {
             fontSize: '12px',
             fill: '#fff'
         });
-        this.goal4 = this.add.text(65, 100, '• Have fun!', {
+        this.goal4 = this.add.text(65, 90, '• Have fun!', {
             fontSize: '12px',
             fill: '#fff'
         });
         // create controls title
-        this.controlTitle = this.add.text(this.scaleW / 2, 140, 'The controls: ', {
+        this.controlTitle = this.add.text(this.scaleW / 2, 130, 'The controls', {
             fontSize: '16px',
             fill: '#FF69B4'
         });
-        this.movementControls = this.add.text(84, 160, 'MOVEMENT: Left & Right or WASD', {
+        this.movementControls = this.add.text(74, 140, 'MOVEMENT: Left & Right or WASD', {
             fontSize: '12px',
             fill: '#fff'
         });
-        this.jumpControls = this.add.text(112, 180, 'JUMP: Up or Space', {
+        this.jumpControls = this.add.text(102, 160, 'JUMP: Up or Space', {
+            fontSize: '12px',
+            fill: '#fff'
+        });
+        this.menuControls = this.add.text(102, 180, 'QUIT: Escape', {
             fontSize: '12px',
             fill: '#fff'
         });

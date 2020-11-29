@@ -20,7 +20,7 @@ class EndScene extends Phaser.Scene {
             fontSize: '36px',
             fill: '#fff'
         });
-        this.pScore = this.add.text(this.scaleW / 2, 140, "Treasure collected : "+this.playerScore, {font: '12px Courier', fill: '#ffffff'});
+        this.pScore = this.add.text(this.scaleW / 2, 140, "Yurtage collected : "+this.playerScore, {font: '12px Courier', fill: '#ffffff'});
         this.pKills = this.add.text(this.scaleW / 2, 160, "Slimes stomped on : "+this.playerKills, {font: '12px Courier', fill: '#ffffff'});
 
         // center text

@@ -13,15 +13,14 @@ class BootScene extends Phaser.Scene {
         this.loadTilemaps();
         // load audio
         this.loadAudio();
-        this.audioToCache();
-        // load font
-        // this.loadFonts();
     }
 
     loadImages() {
+        // load background images
         this.load.image('menuBackground', 'assets/img/menuBG.png');
         this.load.image('deathBackground', 'assets/img/deathBG.png');
         this.load.image('winBackground', 'assets/img/winBG.png');
+        // load button images
         this.load.image('startButton', 'assets/buttons/LateNighCoffe/Green/startBtn1.png');
         this.load.image('startButton2', 'assets/buttons/LateNighCoffe/Green/startBtn2.png');
         this.load.image('helpButton', 'assets/buttons/LateNighCoffe/Green/helpBtn1.png');
@@ -42,17 +41,13 @@ class BootScene extends Phaser.Scene {
         this.load.image('controlsButton4', 'assets/buttons/LateNighCoffe/Green/controlsBtn4.png');
         this.load.image('statsButton1', 'assets/buttons/LateNighCoffe/Green/statsBtn1.png');
         this.load.image('statsButton2', 'assets/buttons/LateNighCoffe/Green/statsBtn2.png');
-        this.load.image('ladder', 'assets/sprites/ladder.png');
-        this.load.image('gem', 'assets/sprites/gold.png')
+        // load item images
+        this.load.image('yurt', 'assets/sprites/yurt.png')
         this.load.image('block', 'assets/sprites/block.png')
-    }
-
-    loadFonts(){
-        // couldn't get Phaser to pick up .fnt file or convert to .xml - very odd.. They apparently extended support for .fnt files in 2019..
-        this.load.bitmapFont('mc', 'assets/bitmapfonts/mc/mc.png', 'assets/bitmapfonts/mc/mc.xml');
     }
     
     loadSpriteSheets() {
+        // Load the player and slime sprite sheets
         this.load.spritesheet("player", "assets/sprites/girl16.png", {
             frameWidth: 16,
             frameHeight: 16,
@@ -67,8 +62,8 @@ class BootScene extends Phaser.Scene {
 
     loadTilemaps() {
         console.log("loading tilemaps")
+
         // Load the Tiled JSON
-        // this.load.tilemapTiledJSON('testing16', 'assets/maps/testing16.json');
         this.load.tilemapTiledJSON("Level1", "assets/maps/Level1.json");
 
         // Load the tiles
@@ -78,11 +73,11 @@ class BootScene extends Phaser.Scene {
     }
     
     loadAudio() {
-        // music
+        // loading music
         this.gameTheme = this.load.audio('theme', [
-            "assets/music/ogg/CavesOfYurt.ogg",
-            "assets/music/mp3/CavesOfYurt.mp3"]);
-        // sfx
+            "assets/music/ogg/CavesOfYurt_loop.ogg",
+            "assets/music/mp3/CavesOfYurt_loop.mp3"]);
+        // loading sfx
         this.clickSound = this.load.audio('click', [
             "assets/sfx/ogg/click.ogg",
             "assets/sfx/mp3/click.mp3"]);
@@ -96,16 +91,9 @@ class BootScene extends Phaser.Scene {
             "assets/sfx/ogg/hurt.ogg",
             "assets/sfx/mp3/hurt.mp3"]);
     }
-
-    audioToCache() {
-        // this.hover = this.sound.add('hover');
-        // this.click = this.sound.add('click');
-        // this.collect = this.sound.add('collect');
-        // this.squish = this.sound.add('squish');
-        // this.hurt = this.sound.add('hurt');
-    }
     
     create() {
+        // log when preloading completes and switch to Title scene
         console.log("preloading done");
         this.scene.start("Title");
     }
