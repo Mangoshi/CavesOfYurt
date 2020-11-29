@@ -196,9 +196,11 @@ class GameScene extends Phaser.Scene {
     }
 
     createAudio() {
-        this.squishSound = this.sound.add('squish', {volume: 0.3, loop: false});
+        this.squishSound = this.sound.add('squish', {volume: 0.2});
         this.deathSound = this.sound.add('hurt', {volume: 0.3});
         this.collectSound = this.sound.add('collect', {volume: 0.1});
+        this.gameMusic = this.sound.add('theme', {volume: 0.4, loop: true});
+        this.gameMusic.play();
     }
 
 
@@ -211,6 +213,7 @@ class GameScene extends Phaser.Scene {
         this.escapeKey = this.input.keyboard.addKey('ESC');
 
         if(this.escapeKey.isDown){
+            this.gameMusic.stop();
             this.scene.start('Title', {
                 playerScore: this.playerScore,
                 playerKills: this.slimesDead
@@ -390,6 +393,7 @@ class GameScene extends Phaser.Scene {
     }
 
     gameOver() {
+        this.gameMusic.stop();
         // Start death scene and pass score variables
         this.scene.start('Death', {
             playerScore: this.playerScore,
@@ -401,6 +405,7 @@ class GameScene extends Phaser.Scene {
     }
 
     gameWin() {
+        this.gameMusic.stop();
         // Start win scene and pass score variables
         this.scene.start('End', {
             playerScore: this.playerScore,

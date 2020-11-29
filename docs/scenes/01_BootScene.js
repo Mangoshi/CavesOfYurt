@@ -79,7 +79,9 @@ class BootScene extends Phaser.Scene {
     
     loadAudio() {
         // music
-
+        this.gameTheme = this.load.audio('theme', [
+            "assets/music/ogg/CavesOfYurt.ogg",
+            "assets/music/mp3/CavesOfYurt.mp3"]);
         // sfx
         this.clickSound = this.load.audio('click', [
             "assets/sfx/ogg/click.ogg",

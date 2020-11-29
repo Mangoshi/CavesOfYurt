@@ -35,7 +35,7 @@ class DeathScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
-        console.log("I AM WORK");
+        // console.log("I AM WORKING");
         this.scene.start(targetScene, {
             playerScore: this.playerScore,
             playerKills: this.playerKills
