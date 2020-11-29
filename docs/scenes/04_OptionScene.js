@@ -5,9 +5,11 @@ class OptionScene extends Phaser.Scene {
         super('Options');
     }
 
-    init() {
+    init(data) {
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
+        this.playerScore = data.playerScore;
+        this.playerKills = data.playerKills;
     }
 
     create() {
@@ -116,6 +118,10 @@ class OptionScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
-        this.scene.start(targetScene, {retroControls: retroControls});
+        this.scene.start(targetScene, {
+            retroControls: retroControls,
+            playerScore: this.playerScore,
+            playerKills: this.playerKills
+        });
     }
 }
