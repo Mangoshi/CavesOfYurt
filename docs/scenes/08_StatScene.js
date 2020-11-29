@@ -3,11 +3,15 @@ class StatScene extends Phaser.Scene {
         super('Stats');
     }
 
+    // initialize function with data from previous scenes
     init(data)
     {
+        // initialize scale variables
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
+        // debug data
         // console.log('init', data);
+        // set score variables to variables passed from data
         this.playerScore = data.playerScore;
         this.playerKills = data.playerKills;
     }
@@ -31,7 +35,9 @@ class StatScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
+        // start scene targeted by button
         this.scene.start(targetScene, {
+            // pass these variables
             playerScore: this.playerScore,
             playerKills: this.playerKills
         });

@@ -4,17 +4,18 @@ class HelpScene extends Phaser.Scene {
     }
 
     init() {
+        // initialize scale variables again
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
     }
 
     create() {
-        // create title
+        // create title text
         this.titleText = this.add.text(this.scaleW / 2, 20, 'The goal', {
             fontSize: '16px',
             fill: '#FF69B4'
         });
-        // create goals
+        // create goals text
         this.goal1 = this.add.text(65, 30, '• Kill slimes by jumping on their heads', {
             fontSize: '12px',
             fill: '#fff'
@@ -31,11 +32,12 @@ class HelpScene extends Phaser.Scene {
             fontSize: '12px',
             fill: '#fff'
         });
-        // create controls title
+        // create controls title text
         this.controlTitle = this.add.text(this.scaleW / 2, 130, 'The controls', {
             fontSize: '16px',
             fill: '#FF69B4'
         });
+        // create controls text
         this.movementControls = this.add.text(74, 140, 'MOVEMENT: Left & Right or WASD', {
             fontSize: '12px',
             fill: '#fff'
@@ -49,6 +51,7 @@ class HelpScene extends Phaser.Scene {
             fill: '#fff'
         });
 
+        // set both titles origin to center
         this.titleText.setOrigin(0.5);
         this.controlTitle.setOrigin(0.5);
 
@@ -58,6 +61,7 @@ class HelpScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
+        // start scene targeted by button
         this.scene.start(targetScene);
     }
 }

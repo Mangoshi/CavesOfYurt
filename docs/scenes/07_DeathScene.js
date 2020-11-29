@@ -3,12 +3,16 @@ class DeathScene extends Phaser.Scene {
         super('Death');
     }
 
+    // initialize function with data from previous scenes
     init(data)
     {
+        // initialize scale variables
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
+        // set score variables to variables passed from data
         this.playerScore = data.playerScore;
         this.playerKills = data.playerKills;
+        // debug data
         // console.log('init', data);
     }
 
@@ -35,8 +39,11 @@ class DeathScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
+        // debug
         // console.log("I AM WORKING");
+        // start scene targeted by button pressed
         this.scene.start(targetScene, {
+            // pass this data
             playerScore: this.playerScore,
             playerKills: this.playerKills
         });

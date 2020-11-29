@@ -3,20 +3,25 @@ class GameScene extends Phaser.Scene {
         super('Game');
     }
 
+    // initialize variables and acquire data from previous scenes
     init(data) {
+        // initialize player speed & jump height variables
         this.jumpHeight = 150;
-        this.slimeJump = 150;
         this.walkSpeed = 100;
-        this.slimeSpeed = 50;
+        // initialize booleans as false
         this.debugOn = false;
         this.playerTouchingSlime = false;
+        // initialize score variables from data passed
         this.playerScore = data.playerScore;
         this.playerKills = data.playerKills;
+        // debugging data passed
         // console.log('init', data);
     }
 
     create() {
+        // debugging
         // console.log("calling create functions");
+        // load any functions that only need to be loaded once
         this.createAudio();
         this.createTilemap();
         this.createPlayer();
@@ -29,11 +34,12 @@ class GameScene extends Phaser.Scene {
     }
 
     createTilemap() {
+        // initialize tilemaps & tilesets using keys from bootScene
         this.map = this.make.tilemap({ key: 'Level1' });
         this.tileset = this.map.addTilesetImage('tiles', 'tiles')
         this.bg = this.map.addTilesetImage('bg', 'bg')
 
-        // Create layers
+        // Create background and solid layers
         this.bgLayer = this.map.createStaticLayer('BG', this.bg);
         this.solidLayer = this.map.createStaticLayer('SOLID', this.tileset);
 
@@ -46,70 +52,91 @@ class GameScene extends Phaser.Scene {
     }
 
     createPlayer() {
-        this.playerAlive = true;
+        // initialize player variables
         this.playerScore = 0;
 
-        this.player = this.physics.add.sprite(48, 48,"player"); // 64, 550,
+        // add physics sprite with player key
+        this.player = this.physics.add.sprite(48, 48,"player"); // 64, 550, // Coords used for testing end.
+
+        // set player gravity
         this.player.body.setGravityY(300);
+
+        // make player collide with world edges (bounds)
         this.player.setCollideWorldBounds(true);
+
+        // add a collider between the player and the solidLayer
         this.physics.add.collider(this.solidLayer, this.player);
 
         // animation states
-    this.anims.create({
-        key: "left",
-        frames: this.anims.generateFrameNumbers("player", {
-            frames: [134, 133, 132]
-        }),
-        frameRate: 5,
-        repeat: -1,
-    });
-
-    this.anims.create({
-        key: "right",
-        frames: this.anims.generateFrameNumbers("player", {
-            frames: [120, 121, 122]
-        }),
-        frameRate: 5,
-        repeat: -1,
+        this.anims.create({
+            key: "left",
+            frames: this.anims.generateFrameNumbers("player", {
+                frames: [134, 133, 132]
+            }),
+            frameRate: 5,
+            repeat: -1,
         });
 
-    this.anims.create({
-        key: "jump",
-        frames: this.anims.generateFrameNumbers("player", {
-            frames: [108, 109, 110]
-        }),
-        frameRate: 5,
-        repeat: -1,
-        });
+        this.anims.create({
+            key: "right",
+            frames: this.anims.generateFrameNumbers("player", {
+                frames: [120, 121, 122]
+            }),
+            frameRate: 5,
+            repeat: -1,
+            });
 
-    this.anims.create({
-        key: "idle",
-        frames: this.anims.generateFrameNumbers("player", {
-            frames: [97, 97, 98, 96]
-        }),
-        frameRate: 2,
-        repeat: -1,
-        });
-    }
+        this.anims.create({
+            key: "jump",
+            frames: this.anims.generateFrameNumbers("player", {
+                frames: [108, 109, 110]
+            }),
+            frameRate: 5,
+            repeat: -1,
+            });
+
+        this.anims.create({
+            key: "idle",
+            frames: this.anims.generateFrameNumbers("player", {
+                frames: [97, 97, 98, 96]
+            }),
+            frameRate: 2,
+            repeat: -1,
+            });
+        }
 
     createTreasure() {
-        // this.yurt = this.physics.add.sprite(256, 48, "yurt");
+        // create group of physics objects called yurtage
         this.yurtage = this.physics.add.group();
 
+        // for loop that counts to 100 (ie. 100 yurt gems)
         for (let i= 0; i < 100; i++){
+            // x = random number between 32 and width of level minus border
             const x = Phaser.Math.RND.between(32, this.solidLayer.width - 32);
+            // y = random number between 32 and height of level minus border
             const y = Phaser.Math.RND.between(32, this.solidLayer.height - 32);
+            // this.yurt initialized as a new instance of group "yurtage"
             this.yurt = this.yurtage.create(x, y, 'yurt');
+            // set gravity of yurtage children
             this.yurt.body.setGravityY(200);
+            // make yurtage collide with world bounds
             this.yurt.setCollideWorldBounds(true);
+            // add collider between solidLayer and yurtage
             this.physics.add.collider(this.solidLayer, this.yurt);
+            // create and overlap collider between player and yurtage, call yurtTouch function
             this.physics.add.overlap(this.player, this.yurt, this.yurtTouch, null, this);
 
+            // callback function
             this.yurtTouch = function(player, yurt) {
+                // make yurtage invisible
                 yurt.visible = false;
+                // disable yurtage physics properties
                 yurt.body.enable = false;
+                // add to playerScore by one
                 this.playerScore++;
+                // play collectSound
                 this.collectSound.play();
+                // debugging
                 // console.log("yurt touched");
             }
         }
@@ -118,10 +145,13 @@ class GameScene extends Phaser.Scene {
     createEnemies() {
         // Making an array of slimes
         this.slimes = [];
+        // initializing slimesDead count to 0
         this.slimesDead = 0;
+        // initializing a variable used for debugging
+        // this would let me differentiate between each slime
         let newSlimeName = 0;
 
-        // 0 - 200
+        // building slimes from approx. 0 - 200 y-position
         this.slimes[0] = new Slime(this, 248, 152, String(newSlimeName++));
         this.slimes[1] = new Slime(this, 200, 152, String(newSlimeName++));
         this.slimes[2] = new Slime(this, 696, 56, String(newSlimeName++));
@@ -133,7 +163,7 @@ class GameScene extends Phaser.Scene {
         this.slimes[8] = new Slime(this, 1725, 72, String(newSlimeName++));
         this.slimes[9] = new Slime(this, 2320, 152, String(newSlimeName++));
         this.slimes[10] = new Slime(this, 2312, 72, String(newSlimeName++));
-        // 200 - 400
+        // building slimes from approx. 200 - 400 y-position
         this.slimes[11] = new Slime(this, 1800, 200, String(newSlimeName++));
         this.slimes[12] = new Slime(this, 160, 232, String(newSlimeName++));
         this.slimes[13] = new Slime(this, 310, 232, String(newSlimeName++));
@@ -152,7 +182,7 @@ class GameScene extends Phaser.Scene {
         this.slimes[26] = new Slime(this, 602, 312, String(newSlimeName++));
         this.slimes[27] = new Slime(this, 752, 280, String(newSlimeName++));
         this.slimes[28] = new Slime(this, 380, 280, String(newSlimeName++));
-        // 300 - 600
+        // building slimes from approx. 300 - 600 y-position
         this.slimes[29] = new Slime(this, 284, 440, String(newSlimeName++));
         this.slimes[30] = new Slime(this, 406, 440, String(newSlimeName++));
         this.slimes[31] = new Slime(this, 559, 456, String(newSlimeName++));
@@ -183,43 +213,63 @@ class GameScene extends Phaser.Scene {
         this.slimes[56] = new Slime(this, 2076, 472, String(newSlimeName++));
         this.slimes[57] = new Slime(this, 2255, 440, String(newSlimeName++));
 
+        // forEach slime in array this.slimes
         this.slimes.forEach((slime) => {
+            // initialize playerSlimeCollider as a new collider between the player and each instance of slimes
+            // also use a collideCallback and processCallback to run code on collisions
             let playerSlimeCollider = this.physics.add.collider(this.player, slime, function(){
+                // if the player and a slime touch
+                // play squishSound
                 this.squishSound.play();
+                // disable this slime instance's physics
                 slime.body.enable = false;
+                // hide the slime
                 slime.alpha = 0;
+                // add one to the slime death count
                 this.slimesDead++;
+                // processCallback is fired after the callbackFunction
             }, function(){
+                // here I remove the collider from the instance of the slime that was touched
+                // this stops many, many errors from happening due to phantom colliders
                 this.physics.world.removeCollider(playerSlimeCollider);
             }, this);
         })
     }
 
     createAudio() {
+        // add audio sounds from the audio cache (made in boot)
+        // the parenthesis after the comma are configuration properties
         this.squishSound = this.sound.add('squish', {volume: 0.2});
         this.deathSound = this.sound.add('hurt', {volume: 0.3});
         this.collectSound = this.sound.add('collect', {volume: 0.1});
         this.gameMusic = this.sound.add('theme', {volume: 0.4, loop: true});
+        // since this is called as the gameScene starts, start the music
         this.gameMusic.play();
     }
 
 
-    createClassicInputs() {
+    createInputs() {
+        // initialize cursors variable with the predefined createCursorKeys function
         this.cursors = this.input.keyboard.createCursorKeys();
+        // initialize custom keys
         this.f1 = this.input.keyboard.addKey('F1');
         this.wKey = this.input.keyboard.addKey('W');
         this.aKey = this.input.keyboard.addKey('A');
         this.dKey = this.input.keyboard.addKey('D');
         this.escapeKey = this.input.keyboard.addKey('ESC');
 
+        // if player presses the escape key
         if(this.escapeKey.isDown){
+            // stop the game music
             this.gameMusic.stop();
+            // return to title scene and pass the score data to it
             this.scene.start('Title', {
                 playerScore: this.playerScore,
                 playerKills: this.slimesDead
             });
         }
 
+        // if retroControls are enabled
         if(retroControls) {
             // if the LEFT arrow key is down
             if (this.cursors.left.isDown) {
@@ -251,17 +301,19 @@ class GameScene extends Phaser.Scene {
 
             // else if no key is being pressed
             else {
-                this.player.body.setVelocityX(0);
+                this.player.body.setVelocityX(0); // set player velocity to 0
                 this.player.anims.play("idle", true); // play 'idle' animation
             }
+
+        // if retroControls are disabled
         } else {
             // if the A key is down
             if (this.aKey.isDown) {
-                this.player.body.setVelocityX(-this.walkSpeed); // move left
-                this.player.anims.play("left", true); // play animation with key 'left'
+                this.player.body.setVelocityX(-this.walkSpeed);
+                this.player.anims.play("left", true);
 
-                if ((this.cursors.space.isDown || this.wKey.isDown) && this.player.body.onFloor()) { // if player is moving & presses jump while not on the ground
-                    this.player.body.setVelocityY(-this.jumpHeight); // jump up
+                if ((this.cursors.space.isDown || this.wKey.isDown) && this.player.body.onFloor()) {
+                    this.player.body.setVelocityY(-this.jumpHeight);
                 }
             }
 
@@ -286,12 +338,13 @@ class GameScene extends Phaser.Scene {
             // else if no key is being pressed
             else {
                 this.player.body.setVelocityX(0);
-                this.player.anims.play("idle", true); // play 'idle' animation
+                this.player.anims.play("idle", true);
             }
         }
     }
 
     createCamera(){
+    // initialize camera variable as main camera object
     this.camera = this.cameras.main;
     // set bounds so the camera won't go outside the game world
     this.camera.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
@@ -314,12 +367,14 @@ class GameScene extends Phaser.Scene {
     }
 
     updateText() {
-        // Update text elements set in createText()
+        // Update text elements set in createText() as the score variables change
         let score = this.pScore.setText("Yurtage: " + this.playerScore);
         let kills = this.pKills.setText("Kills: " + (this.slimesDead));
+
         // Force score & kills counter to move with camera
         score.setScrollFactor(0);
         kills.setScrollFactor(0);
+
         // If F1 has been pressed to enable debug
         if (this.debugOn===true) {
             // Update pxText & pyText to show player coordinates above player head
@@ -354,25 +409,38 @@ class GameScene extends Phaser.Scene {
     }
 
     createHighscoreVars(){
+        // Initialize the local high score variables
         this.mostYurtage = 0;
         this.mostKills = 0;
     }
 
     updateHighscore(){
+        // If the slimesDead variable is greater than mostKills
         if (this.slimesDead > this.mostKills)
         {
+            // let mostKills equal slimesDead
             this.mostKills = this.slimesDead;
+            // debug
             // console.log("mostKills: "+this.mostKills);
         }
+        // If the playerScore variable is greater than mostYurtage
         if (this.playerScore > this.mostYurtage)
         {
+            // let mostYurtage equal playerScore
             this.mostYurtage = this.playerScore;
+            // debug
             // console.log("mostYurtage: "+this.mostYurtage);
         }
+        // If mostYurtage is greater than than the item in localStorage with key 'mostYurtage'
+        // OR the localStorage variable is null
         if (this.mostYurtage > localStorage.getItem("mostYurtage") || !localStorage.getItem("mostYurtage")) {
+            // set localStorage variable to mostYurtage
             localStorage.setItem("mostYurtage", this.mostYurtage);
         }
+        // If mostKills is greater than than the item in localStorage with key 'mostKills'
+        // OR the localStorage variable is null
         if (this.mostKills > localStorage.getItem("mostKills") || !localStorage.getItem("mostKills")) {
+            // set localStorage variable to mostKills
             localStorage.setItem("mostKills", this.mostKills);
         }
     }
@@ -381,23 +449,25 @@ class GameScene extends Phaser.Scene {
     update(time, deltaTime) {
         // For each slime in slimes array, run slime functions
         this.slimes.forEach((slime) => {
+            // pass current slime instance and this.player to the function
             slimeTracking(slime, this.player);
+            // pass current slime instance, this.player, and this scene to function
             slimeDamage(slime, this.player, this);
         });
 
         // Call update functions
         this.updateText();
-        this.createClassicInputs();
+        this.createInputs();
         this.checkFinish();
         this.updateHighscore();
     }
 
     gameOver() {
+        // stop gameMusic
         this.gameMusic.stop();
         // Start death scene and pass score variables
         this.scene.start('Death', {
             playerScore: this.playerScore,
-            // Reducing one from the slimesDead count to stop a kill from counting
             playerKills: this.slimesDead
         });
         // Play death sound
@@ -405,6 +475,7 @@ class GameScene extends Phaser.Scene {
     }
 
     gameWin() {
+        // stop gameMusic
         this.gameMusic.stop();
         // Start win scene and pass score variables
         this.scene.start('End', {

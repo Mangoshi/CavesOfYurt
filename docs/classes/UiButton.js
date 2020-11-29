@@ -13,11 +13,13 @@ class UiButton extends Phaser.GameObjects.Container {
         this.createButton();
         // add this container to our Phaser Scene
         this.scene.add.existing(this);
+        // load click sound effect from sound cache & set volume to 0.5
         this.click = game.sound.add('click', {volume: 0.5});
     }
 
     createButton() {
-        // create buttons
+        // create buttons array ( I modified this class because it wouldn't move the text as the button moved )
+        // making it an array helped reduce the amount of code needed as I could loop through them
         this.buttons = [
             this.startButton = this.scene.add.image(0, 0, 'startButton'),
             this.helpButton = this.scene.add.image(0, 0, 'helpButton'),
@@ -27,7 +29,9 @@ class UiButton extends Phaser.GameObjects.Container {
             this.statsButton = this.scene.add.image(0, 0, 'statsButton')
         ];
 
+        // for loop which loops through the length of the buttons array
         for(let i=0; i<this.buttons.length; i++) {
+
             // make buttons interactive
             this.buttons[i].setInteractive();
 
@@ -42,13 +46,17 @@ class UiButton extends Phaser.GameObjects.Container {
 
             // listen for events
             this.buttons[i].on('pointerdown', () => {
+                // if clicked send targetCallback variable to scene change
                 this.targetCallback();
+                // play click sound
                 this.click.play();
             });
             this.buttons[i].on('pointerover', () => {
+                // if hovering over, set texture to the key passed by hoverKey
                 this.buttons[i].setTexture(this.hoverKey);
             });
             this.buttons[i].on('pointerout', () => {
+                // if no longer hovering, reset the texture
                 this.buttons[i].setTexture(this.key);
             });
         }

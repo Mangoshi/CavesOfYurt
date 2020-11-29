@@ -3,10 +3,14 @@ class EndScene extends Phaser.Scene {
         super('End');
     }
 
+    // initialize function with data from previous scenes
     init(data) {
+        // initialize scale variables
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
+        // debug data
         // console.log('init', data);
+        // set score variables to variables passed from data
         this.playerScore = data.playerScore;
         this.playerKills = data.playerKills;
     }
@@ -34,7 +38,9 @@ class EndScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
+        // Start scene targeted by button pressed
         this.scene.start(targetScene, {
+            // pass these variables
             playerScore: this.playerScore,
             playerKills: this.playerKills
         });
