@@ -18,8 +18,8 @@ class StatScene extends Phaser.Scene {
             fontSize: '36px',
             fill: '#fff'
         });
-        this.pScore = this.add.text(this.scaleW / 2, 140, "Most treasure collected : "+localStorage.getItem("mostGems"), {font: '12px Courier', fill: '#ffffff'});
-        this.pKills = this.add.text(this.scaleW / 2, 160, "Most slimes stomped on : "+localStorage.getItem("mostKills"), {font: '12px Courier', fill: '#ffffff'});
+        this.pScore = this.add.text(this.scaleW / 2, 100, "Most treasure collected : "+localStorage.getItem("mostGems"), {font: '12px Courier', fill: '#ffffff'});
+        this.pKills = this.add.text(this.scaleW / 2, 120, "Most slimes stomped on : "+localStorage.getItem("mostKills"), {font: '12px Courier', fill: '#ffffff'});
 
         // center text
         this.titleText.setOrigin(0.5);
