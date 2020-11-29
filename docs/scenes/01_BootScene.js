@@ -36,10 +36,12 @@ class BootScene extends Phaser.Scene {
         this.load.image('soundButton2', 'assets/buttons/LateNighCoffe/Green/soundBtn2.png');
         this.load.image('soundButton3', 'assets/buttons/LateNighCoffe/Green/soundBtn3.png');
         this.load.image('soundButton4', 'assets/buttons/LateNighCoffe/Green/soundBtn4.png');
-        this.load.image('controlsButton1', 'assets/buttons/LateNighCoffe/Green/controlsButton1.png');
-        this.load.image('controlsButton2', 'assets/buttons/LateNighCoffe/Green/controlsButton2.png');
-        this.load.image('controlsButton3', 'assets/buttons/LateNighCoffe/Green/controlsButton3.png');
-        this.load.image('controlsButton4', 'assets/buttons/LateNighCoffe/Green/controlsButton4.png');
+        this.load.image('controlsButton1', 'assets/buttons/LateNighCoffe/Green/controlsBtn1.png');
+        this.load.image('controlsButton2', 'assets/buttons/LateNighCoffe/Green/controlsBtn2.png');
+        this.load.image('controlsButton3', 'assets/buttons/LateNighCoffe/Green/controlsBtn3.png');
+        this.load.image('controlsButton4', 'assets/buttons/LateNighCoffe/Green/controlsBtn4.png');
+        this.load.image('statsButton1', 'assets/buttons/LateNighCoffe/Green/statsBtn1.png');
+        this.load.image('statsButton2', 'assets/buttons/LateNighCoffe/Green/statsBtn2.png');
         this.load.image('ladder', 'assets/sprites/ladder.png');
         this.load.image('gem', 'assets/sprites/gold.png')
         this.load.image('block', 'assets/sprites/block.png')
@@ -77,14 +79,8 @@ class BootScene extends Phaser.Scene {
     
     loadAudio() {
         // music
-        // this.load.audio("bgmusic", [
-        // "../assets/bgmusic.mp3",
-        // "../assets/bgmusic.ogg",
-        // ]);
+
         // sfx
-        this.hoverSound = this.load.audio('hover', [
-            "assets/sfx/ogg/hover.ogg",
-            "assets/sfx/mp3/hover.mp3"]);
         this.clickSound = this.load.audio('click', [
             "assets/sfx/ogg/click.ogg",
             "assets/sfx/mp3/click.mp3"]);

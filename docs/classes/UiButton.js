@@ -13,19 +13,18 @@ class UiButton extends Phaser.GameObjects.Container {
         this.createButton();
         // add this container to our Phaser Scene
         this.scene.add.existing(this);
-        this.click = game.sound.add('click');
-        this.hover = game.sound.add('hover');
-
+        this.click = game.sound.add('click', {volume: 0.5});
     }
 
     createButton() {
         // create buttons
         this.buttons = [
-        this.startButton = this.scene.add.image(0, 0, 'startButton'),
-        this.helpButton = this.scene.add.image(0, 0, 'helpButton'),
-        this.settingsButton = this.scene.add.image(0, 0, 'settingsButton'),
-        this.retryButton = this.scene.add.image(0, 0, 'retryButton'),
-        this.backButton = this.scene.add.image(0, 0, 'backButton')
+            this.startButton = this.scene.add.image(0, 0, 'startButton'),
+            this.helpButton = this.scene.add.image(0, 0, 'helpButton'),
+            this.settingsButton = this.scene.add.image(0, 0, 'settingsButton'),
+            this.retryButton = this.scene.add.image(0, 0, 'retryButton'),
+            this.backButton = this.scene.add.image(0, 0, 'backButton'),
+            this.statsButton = this.scene.add.image(0, 0, 'statsButton')
         ];
 
         for(let i=0; i<this.buttons.length; i++) {
@@ -48,25 +47,10 @@ class UiButton extends Phaser.GameObjects.Container {
             });
             this.buttons[i].on('pointerover', () => {
                 this.buttons[i].setTexture(this.hoverKey);
-                this.hover.play();
             });
             this.buttons[i].on('pointerout', () => {
                 this.buttons[i].setTexture(this.key);
             });
         }
-        this.soundButton = this.scene.add.image(-20, -20, 'soundButtonOn');
-
-        // this.soundButton.on('pointerover', () => {
-        //     this.soundButton.setTexture(null);
-        // });
-        // this.soundButton.on('pointerout', () => {
-        //     this.soundButton.setTexture(null);
-        // });
-        // this.soundButton.on('pointerdown', () => {
-        //         this.soundButton.setTexture(null);
-        //         this.isMuted = true;
-        // });
-
-
     }
 }

@@ -15,7 +15,8 @@ var config = {
         OptionScene,
         HelpScene,
         EndScene,
-        DeathScene
+        DeathScene,
+        StatScene
     ],
     physics: {
         default: 'arcade',

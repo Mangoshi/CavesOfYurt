@@ -351,16 +351,26 @@ class GameScene extends Phaser.Scene {
     }
 
     createHighscoreVars(){
-        let mostGems = 0;
-        let mostKills = 0;
+        this.mostGems = 0;
+        this.mostKills = 0;
     }
 
     updateHighscore(){
-        if (mostGems > localStorage.getItem("mostGems") || !localStorage.getItem("mostGems")) {
-            localStorage.setItem("mostGems", this.playerScore);
+        if (this.slimesDead > this.mostKills)
+        {
+            this.mostKills = this.slimesDead;
+            console.log("mostKills: "+this.mostKills);
         }
-        if (mostKills > localStorage.getItem("mostKills") || !localStorage.getItem("mostKills")) {
-            localStorage.setItem("mostKills", this.slimesDead);
+        if (this.playerScore > this.mostGems)
+        {
+            this.mostGems = this.playerScore;
+            console.log("mostGems: "+this.mostGems);
+        }
+        if (this.mostGems > localStorage.getItem("mostGems") || !localStorage.getItem("mostGems")) {
+            localStorage.setItem("mostGems", this.mostGems);
+        }
+        if (this.mostKills > localStorage.getItem("mostKills") || !localStorage.getItem("mostKills")) {
+            localStorage.setItem("mostKills", this.mostKills);
         }
     }
 
@@ -370,6 +380,7 @@ class GameScene extends Phaser.Scene {
         this.updateText();
         this.createClassicInputs();
         this.checkFinish();
+        this.updateHighscore();
 
         // For each slime in slimes array, run slime functions
         this.slimes.forEach((slime) => {

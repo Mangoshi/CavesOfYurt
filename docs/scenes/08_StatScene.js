@@ -1,6 +1,6 @@
-class DeathScene extends Phaser.Scene {
+class StatScene extends Phaser.Scene {
     constructor() {
-        super('Death');
+        super('Stats');
     }
 
     init(data)
@@ -8,8 +8,8 @@ class DeathScene extends Phaser.Scene {
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
         // console.log('init', data);
-        this.finalScore = data.playerScore;
-        this.finalKills = data.playerKills;
+        this.playerScore = data.playerScore;
+        this.playerKills = data.playerKills;
     }
 
     create() {
@@ -18,8 +18,8 @@ class DeathScene extends Phaser.Scene {
             fontSize: '36px',
             fill: '#fff'
         });
-        this.pScore = this.add.text(this.scaleW / 2, 140, "Most treasure collected : "+this.highScore, {font: '12px Courier', fill: '#ffffff'});
-        this.pKills = this.add.text(this.scaleW / 2, 160, "Most slimes stomped on : "+this.highKills, {font: '12px Courier', fill: '#ffffff'});
+        this.pScore = this.add.text(this.scaleW / 2, 140, "Most treasure collected : "+localStorage.getItem("mostGems"), {font: '12px Courier', fill: '#ffffff'});
+        this.pKills = this.add.text(this.scaleW / 2, 160, "Most slimes stomped on : "+localStorage.getItem("mostKills"), {font: '12px Courier', fill: '#ffffff'});
 
         // center text
         this.titleText.setOrigin(0.5);
@@ -31,6 +31,9 @@ class DeathScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
-        this.scene.start(targetScene);
+        this.scene.start(targetScene, {
+            playerScore: this.playerScore,
+            playerKills: this.playerKills
+        });
     }
 }

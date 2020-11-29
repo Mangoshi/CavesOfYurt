@@ -37,19 +37,9 @@ class TitleScene extends Phaser.Scene {
 
         // create settings button
         this.settingsButton = new UiButton(this, this.scaleW / 1.1075, this.scaleH / 1.125, 'settingsButton', 'settingsButton2', '', this.startScene.bind(this, 'Options'));
-    }
 
-    update() {
-        // listen for events
-        this.startGameButton.on('pointerdown', () => {
-            this.clickSound.play("click");
-            console.log("clicked");
-        });
-
-        this.startGameButton.on('pointerover', () => {
-            this.hoverSound.play("hover");
-            console.log("hover");
-        });
+        // create stats button
+        this.statsButton = new UiButton(this, this.scaleW / 2, this.scaleH / 1.125, 'statsButton1', 'statsButton2', '', this.startScene.bind(this, 'Stats'));
     }
 
     startScene(targetScene) {
