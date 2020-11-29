@@ -7,6 +7,9 @@ Now plays more like the original Mario.
 ## Link To Live Site
 https://iadt-y2-swproject.github.io/sw-project-ca1-Mangoshi/
 
+## Link to Screencast
+https://youtu.be/rCVvGx4fbMI
+
 ## Objective
 * Jump on slimes!
 * Collect as much yurtaage as you can! 
