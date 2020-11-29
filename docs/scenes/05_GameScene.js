@@ -3,15 +3,16 @@ class GameScene extends Phaser.Scene {
         super('Game');
     }
 
-    init() {
+    init(data) {
         this.jumpHeight = 150;
         this.slimeJump = 150;
         this.walkSpeed = 100;
         this.slimeSpeed = 50;
         this.debugOn = false;
-        // this.treasure;
-        // this.treasureScore = 0;
         this.playerTouchingSlime = false;
+        this.playerScore = data.playerScore;
+        this.playerKills = data.playerKills;
+        console.log('init', data);
     }
 
     create() {
@@ -24,6 +25,7 @@ class GameScene extends Phaser.Scene {
         this.createFinish();
         this.createCamera();
         this.createText();
+        this.createHighscoreVars();
     }
 
     createTilemap() {
@@ -47,7 +49,7 @@ class GameScene extends Phaser.Scene {
         this.playerAlive = true;
         this.playerScore = 0;
 
-        this.player = this.physics.add.sprite(48, 48, "player"); // 64, 550
+        this.player = this.physics.add.sprite(48, 48,"player"); // 64, 550,
         this.player.body.setGravityY(300);
         this.player.setCollideWorldBounds(true);
         this.physics.add.collider(this.solidLayer, this.player);
@@ -116,7 +118,7 @@ class GameScene extends Phaser.Scene {
     createEnemies() {
         // Making an array of slimes
         this.slimes = [];
-        this.slimesDead = [];
+        this.slimesDead = 0;
         let newSlimeName = 0;
 
         // 0 - 200
@@ -186,7 +188,7 @@ class GameScene extends Phaser.Scene {
                 this.squishSound.play();
                 slime.body.enable = false;
                 slime.alpha = 0;
-                this.slimesDead.push(slime);
+                this.slimesDead++;
             }, function(){
                 this.physics.world.removeCollider(playerSlimeCollider);
             }, this);
@@ -211,7 +213,7 @@ class GameScene extends Phaser.Scene {
         if(this.escapeKey.isDown){
             this.scene.start('Title', {
                 playerScore: this.playerScore,
-                playerKills: this.slimesDead.length
+                playerKills: this.slimesDead
             });
         }
 
@@ -311,7 +313,7 @@ class GameScene extends Phaser.Scene {
     updateText() {
         // Update text elements set in createText()
         let score = this.pScore.setText("Treasure: " + this.playerScore);
-        let kills = this.pKills.setText("Kills: " + this.slimesDead.length);
+        let kills = this.pKills.setText("Kills: " + (this.slimesDead));
         // Force score & kills counter to move with camera
         score.setScrollFactor(0);
         kills.setScrollFactor(0);
@@ -348,6 +350,21 @@ class GameScene extends Phaser.Scene {
         }
     }
 
+    createHighscoreVars(){
+        let mostGems = 0;
+        let mostKills = 0;
+    }
+
+    updateHighscore(){
+        if (mostGems > localStorage.getItem("mostGems") || !localStorage.getItem("mostGems")) {
+            localStorage.setItem("mostGems", this.playerScore);
+        }
+        if (mostKills > localStorage.getItem("mostKills") || !localStorage.getItem("mostKills")) {
+            localStorage.setItem("mostKills", this.slimesDead);
+        }
+    }
+
+
     update(time, deltaTime) {
         // Call update functions
         this.updateText();
@@ -365,7 +382,8 @@ class GameScene extends Phaser.Scene {
         // Start death scene and pass score variables
         this.scene.start('Death', {
             playerScore: this.playerScore,
-            playerKills: this.slimesDead.length
+            // Reducing one from the slimesDead count to stop a kill from counting
+            playerKills: (this.slimesDead-1)
         });
         // Play death sound
         this.deathSound.play();
@@ -375,7 +393,7 @@ class GameScene extends Phaser.Scene {
         // Start win scene and pass score variables
         this.scene.start('End', {
             playerScore: this.playerScore,
-            playerKills: this.slimesDead.length
+            playerKills: this.slimesDead
         });
     }
 }

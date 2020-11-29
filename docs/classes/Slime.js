@@ -9,7 +9,7 @@ class Slime extends Phaser.Physics.Arcade.Sprite {
         this.myName = name;
         this.tag = "Slime"
 
-        console.log("Creating Slime: " + this.myName);
+        // console.log("Creating Slime: " + this.myName);
 
 
         // enemy properties

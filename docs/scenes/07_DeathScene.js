@@ -7,9 +7,9 @@ class DeathScene extends Phaser.Scene {
     {
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
-        // console.log('init', data);
-        this.finalScore = data.playerScore;
-        this.finalKills = data.playerKills;
+        this.playerScore = data.playerScore;
+        this.playerKills = data.playerKills;
+        console.log('init', data);
     }
 
     create() {
@@ -21,8 +21,8 @@ class DeathScene extends Phaser.Scene {
             fontSize: '36px',
             fill: '#fff'
         });
-        this.pScore = this.add.text(this.scaleW / 2, 140, "Treasure collected : "+this.finalScore, {font: '12px Courier', fill: '#ffffff'});
-        this.pKills = this.add.text(this.scaleW / 2, 160, "Slimes stomped on : "+(this.finalKills-1), {font: '12px Courier', fill: '#ffffff'});
+        this.pScore = this.add.text(this.scaleW / 2, 140, "Treasure collected : "+this.playerScore, {font: '12px Courier', fill: '#ffffff'});
+        this.pKills = this.add.text(this.scaleW / 2, 160, "Slimes stomped on : "+this.playerKills, {font: '12px Courier', fill: '#ffffff'});
 
         // center text
         this.titleText.setOrigin(0.5);
@@ -35,6 +35,10 @@ class DeathScene extends Phaser.Scene {
     }
 
     startScene(targetScene) {
-        this.scene.start(targetScene);
+        console.log("I AM WORK");
+        this.scene.start(targetScene, {
+            playerScore: this.playerScore,
+            playerKills: this.playerKills
+        });
     }
 }

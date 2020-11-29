@@ -6,10 +6,14 @@ class TitleScene extends Phaser.Scene {
     init(data) {
         this.scaleW = this.sys.game.config.width;
         this.scaleH = this.sys.game.config.height;
-        // if(data != null){
-        //     this.finalScore = data.playerScore;
-        //     this.finalKills = data.playerKills;
-        // }
+        if(data.playerScore){
+            this.playerScore = data.playerScore;
+            this.playerKills = data.playerKills;
+        } else {
+            this.playerScore = 0;
+            this.playerKills = 0;
+        }
+        console.log('init', data);
     }
 
     create() {
@@ -51,6 +55,8 @@ class TitleScene extends Phaser.Scene {
     startScene(targetScene) {
         this.scene.start(targetScene , {
             retroControls: retroControls,
+            playerScore: this.playerScore,
+            playerKills: this.playerKills
             });
     }
 }

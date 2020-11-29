@@ -10,14 +10,6 @@ class DeathScene extends Phaser.Scene {
         // console.log('init', data);
         this.finalScore = data.playerScore;
         this.finalKills = data.playerKills;
-        this.highScore;
-        this.highKills;
-        if(this.finalScore > this.finalScore){
-            this.highScore = this.finalScore;
-        }
-        if(this.finalKills > this.finalKills){
-            this.highKills = this.finalKills;
-        }
     }
 
     create() {
