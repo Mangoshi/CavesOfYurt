@@ -8,7 +8,10 @@ Now plays more like the original Mario.
 https://iadt-y2-swproject.github.io/sw-project-ca1-Mangoshi/
 
 ## Link to Screencast
-https://youtu.be/rCVvGx4fbMI
+Click me! 👇
+
+
+[![Watch the screencast](https://img.youtube.com/vi/rCVvGx4fbMI/maxresdefault.jpg)](https://youtu.be/rCVvGx4fbMI)
 
 ## Objective
 * Jump on slimes!
